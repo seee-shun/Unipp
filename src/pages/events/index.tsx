@@ -32,7 +32,6 @@ const Events: NextPage<Props> = (props) => {
 };
 
 export default Events;
-
 export const getStaticProps = async () => {
   let tags = [
     "音楽",
