@@ -1,5 +1,5 @@
 import React from "react";
-import { AppLogo } from "../Atoms/appLogo";
+import { AppLogo } from "../atoms/appLogo";
 import { Flex, Spacer, Box, Avatar } from "@chakra-ui/react";
 
 export const AppHeader: React.FC = ({ children }) => {
