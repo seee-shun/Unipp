@@ -2,7 +2,7 @@ import React from "react";
 import { AppLogo } from "../atoms/appLogo";
 import { Flex, Spacer, Box, Avatar } from "@chakra-ui/react";
 
-export const AppHeader: React.FC = ({ children }) => {
+export const AppHeader: React.FC = () => {
   return (
     <>
       <Box p="1rem">
@@ -16,7 +16,7 @@ export const AppHeader: React.FC = ({ children }) => {
               size="md"
               name="user name"
               src="https://bit.ly/ryan-florence"
-            />{" "}
+            />
           </Box>
         </Flex>
       </Box>
