@@ -6,9 +6,10 @@ export const HeaderBase: React.FC = (props) => {
     <Flex
       as="header"
       position="fixed"
-      top="0"
-      zIndex="200"
-      p="1rem"
+      top={0}
+      zIndex={10}
+      h={20}
+      paddingX={4}
       w="100%"
       justifyContent="center"
       alignContent="center"
