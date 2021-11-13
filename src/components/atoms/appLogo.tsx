@@ -6,10 +6,10 @@ type Props = {
   logo: StaticImageData;
 };
 
-export const AppLogo: React.FC<Props> = (props) => {
+export const AppLogo: React.FC<Props> = ({ logo = logoImage }) => {
   return (
     <>
-      <Image src={props.logo} alt="unipp Logo" width={92} height={38}></Image>
+      <Image src={logo} alt="unipp Logo" width={92} height={38}></Image>
     </>
   );
 };
