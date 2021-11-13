@@ -3,7 +3,7 @@ import Image from "next/image";
 import logoImage from "../../public/unipp.png";
 
 type Props = {
-  logo: StaticImageData;
+  logo?: StaticImageData;
 };
 
 export const AppLogo: React.FC<Props> = ({ logo = logoImage }) => {
