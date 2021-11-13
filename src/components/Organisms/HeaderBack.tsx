@@ -11,6 +11,7 @@ export const HeaderBack: React.FC = (props) => {
       <Base>
         <Flex alignItems="center">
           <ChevronLeftIcon
+            color="#4e4e4e"
             w={8}
             h={8}
             onClick={() => {
