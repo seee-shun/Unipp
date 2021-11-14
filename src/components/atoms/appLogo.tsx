@@ -2,10 +2,14 @@ import React from "react";
 import Image from "next/image";
 import logoImage from "../../public/unipp.png";
 
-export const AppLogo: React.FC = () => {
+type Props = {
+  logo?: StaticImageData;
+};
+
+export const AppLogo: React.FC<Props> = ({ logo = logoImage }) => {
   return (
     <>
-      <Image src={logoImage} alt="unipp Logo" width={92} height={38}></Image>
+      <Image src={logo} alt="unipp Logo" width={92} height={38}></Image>
     </>
   );
 };
