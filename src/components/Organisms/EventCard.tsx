@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import styled from "@emotion/styled";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
 import { EventTag } from "../Molecules/EventTag";
 import { EventClipButton } from "../Molecules/EventClipButton";
@@ -64,14 +65,16 @@ export const EventCard: React.FC<Props> = (props) => {
             <Flex p="12px">
               <Box
                 textAlign="left"
-                fontSize={{ base: 14 }}
+                fontSize={{ base: "xs", lg: "medium" }}
                 fontWeight="bold"
                 color="white"
               >
                 <Text fontWeight="bold">{props.title}</Text>
                 <Text>{props.host}</Text>
                 <Text>
-                  {props.period.start} →　{props.period.finish}
+                  {props.period.start}
+                  <ArrowForwardIcon h={4} w={4} />
+                  {props.period.finish}
                 </Text>
               </Box>
             </Flex>
