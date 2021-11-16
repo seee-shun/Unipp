@@ -51,8 +51,6 @@ const Mypage: NextPageWithLayout = (props) => {
   ];
   let [currentTab, setCurrentTab] = useState(tabMenu[0].id);
 
-  // useEffect(() => {}, [currentTab]);
-
   const tabMenuItemsHandler = (tabMenuId: string): void => {
     if (tabMenuId === currentTab) return;
     setCurrentTab(tabMenuId);
