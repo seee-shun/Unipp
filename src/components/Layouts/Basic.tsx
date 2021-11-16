@@ -6,7 +6,7 @@ export const Basic: React.FC = ({ children }) => {
   return (
     <>
       <Header />
-      <Container as="main" mt="20" p="0" maxW={{ lg: "container.lg" }}>
+      <Container as="main" p="0" maxW={{ lg: "container.lg" }}>
         {children}
       </Container>
     </>
