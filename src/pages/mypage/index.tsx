@@ -46,15 +46,15 @@ type NextPageWithLayout = NextPage<Props> & {
 
 const Mypage: NextPageWithLayout = (props) => {
   const tabMenu = [
-    { id: "cliped", title: "保存したイベント" },
-    { id: "posted", title: "投稿したイベント" },
+    { id: "cliped", title: "保存一覧" },
+    { id: "posted", title: "投稿一覧" },
   ];
   let [currentTab, setCurrentTab] = useState(tabMenu[0].id);
 
   // useEffect(() => {}, [currentTab]);
 
   const tabMenuItemsHandler = (tabMenuId: string): void => {
-    // console.log(tabMenuId);
+    if (tabMenuId === currentTab) return;
     setCurrentTab(tabMenuId);
   };
 
@@ -110,7 +110,6 @@ const Mypage: NextPageWithLayout = (props) => {
             <Box
               borderRadius={4}
               p={2}
-              h={10}
               top={{ base: "-1px", lg: "0" }}
               position="sticky"
               zIndex={11}
@@ -125,20 +124,25 @@ const Mypage: NextPageWithLayout = (props) => {
                       flex={1}
                       justifyContent="center"
                       alignItems="center"
-                      fontWeight={currentTab === el.id ? "bold" : "unset"}
                       border={
                         currentTab === el.id ? "2px solid #f2d672" : "unset"
                       }
-                      borderRadius={currentTab === el.id ? "full" : "unset"}
+                      bgColor={currentTab === el.id ? "white" : "unset"}
+                      borderRadius="full"
                       onClick={() => tabMenuItemsHandler(el.id)}
                     >
                       <TriangleDownIcon
-                        w={6}
-                        h={6}
+                        w={4}
+                        h={4}
                         mr={1}
                         color={currentTab === el.id ? "#F2D672" : "#4e4e4e"}
                       />
-                      {el.title}
+                      <Text
+                        mr={2}
+                        fontWeight={currentTab === el.id ? "bold" : "unset"}
+                      >
+                        {el.title}
+                      </Text>
                     </Flex>
                   );
                 })}
