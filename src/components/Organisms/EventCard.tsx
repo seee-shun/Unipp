@@ -34,7 +34,7 @@ export const EventCard: React.FC<Props> = (props) => {
 
   return (
     <>
-      <Box w={{ base: "50%", md: "33%", lg: "25%" }} border="4px solid white">
+      <Box w={{ base: "50%", md: "33%", lg: "25%" }} p={1}>
         <Box
           objectFit="cover"
           borderRadius="auto"
