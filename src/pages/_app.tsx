@@ -3,14 +3,17 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 import { AppBase } from "../components/Layouts/AppBase";
 import theme from '../styles/theme';
+import { RecoilRoot } from 'recoil'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
-      <AppBase>
-        <Component {...pageProps} />
-      </AppBase>
-    </ChakraProvider>
+    <RecoilRoot>
+      <ChakraProvider theme={theme}>
+        <AppBase>
+          <Component {...pageProps} />
+        </AppBase>
+      </ChakraProvider>
+    </RecoilRoot>
   );
 }
 export default MyApp;
