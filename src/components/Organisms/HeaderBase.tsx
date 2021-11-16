@@ -5,7 +5,7 @@ export const HeaderBase: React.FC = (props) => {
   return (
     <Flex
       as="header"
-      position="fixed"
+      position="sticky"
       top={0}
       zIndex={10}
       h={20}
