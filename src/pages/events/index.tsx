@@ -3,7 +3,11 @@ import Head from "next/head";
 import { EventCard } from "../../components/Organisms/EventCard";
 import { EventSort } from "../../components/Organisms/EventSort";
 import { Box, Flex } from "@chakra-ui/layout";
+import { Button } from "@chakra-ui/react";
 import dayjs from "dayjs";
+import { firestore } from "../../libs/firebase"
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
+import { useRouter } from "next/router";
 
 type Props = {
   tags: string[];
@@ -24,6 +28,12 @@ type Props = {
 };
 
 const Events: NextPage<Props> = (props) => {
+
+  const router = useRouter();
+  const pushToEventPost = () => {
+    router.push("event/post")
+  }
+
   return (
     <>
       <Head>
@@ -33,6 +43,7 @@ const Events: NextPage<Props> = (props) => {
       <main>
         {/* <EventSort tags={props.tags} /> */}
         <Box h="100%">
+          <Button onClick={pushToEventPost}></Button>
           <Flex flexWrap="wrap" justifyContent="justify-between" w="100%">
             {props.events.map((event, index) => {
               return <EventCard key={index} {...event} />;
@@ -47,8 +58,15 @@ const Events: NextPage<Props> = (props) => {
   );
 };
 
-export const getServerSideProps = () => {
+export const getServerSideProps = async() => {
   // ここでfirebaseのコードを書く or Recoilのコード
+
+  const q= query(collection(firestore, "events"));
+  const EventsSnapshot = await getDocs(q);
+  EventsSnapshot.forEach(doc => {
+    console.log(doc.data())
+  })
+
   const tags = [
     "音楽",
     "新歓",
@@ -87,7 +105,7 @@ export const getServerSideProps = () => {
     {
       type: "新歓",
       host: "おれ",
-      image: "https://source.unsplash.com/user/erondu/1800x1502",
+      image: "https://source.unsplash.com/user/erondu/1800x1501",
       title: "テスト",
       cliped: true,
       period: {
