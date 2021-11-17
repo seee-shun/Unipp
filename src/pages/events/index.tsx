@@ -5,7 +5,7 @@ import { EventSort } from "../../components/Organisms/EventSort";
 import { Box, Flex } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/react";
 import dayjs from "dayjs";
-import { firestore } from "../../libs/firebase"
+import { firestore } from "../../libs/firebase";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { useRouter } from "next/router";
 
@@ -28,11 +28,10 @@ type Props = {
 };
 
 const Events: NextPage<Props> = (props) => {
-
   const router = useRouter();
   const pushToEventPost = () => {
-    router.push("event/post")
-  }
+    router.push("event/post");
+  };
 
   return (
     <>
@@ -58,14 +57,14 @@ const Events: NextPage<Props> = (props) => {
   );
 };
 
-export const getServerSideProps = async() => {
+export const getServerSideProps = async () => {
   // ここでfirebaseのコードを書く or Recoilのコード
 
-  const q= query(collection(firestore, "events"));
+  const q = query(collection(firestore, "events"));
   const EventsSnapshot = await getDocs(q);
-  EventsSnapshot.forEach(doc => {
-    console.log(doc.data())
-  })
+  EventsSnapshot.forEach((doc) => {
+    console.log(doc.data());
+  });
 
   const tags = [
     "音楽",
@@ -87,8 +86,8 @@ export const getServerSideProps = async() => {
       title: "テスト",
       cliped: false,
       period: {
-        start: dayjs().format("MM/DD"),
-        finish: dayjs().format("MM/DD"),
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
       },
     },
     {
@@ -98,8 +97,8 @@ export const getServerSideProps = async() => {
       title: "奇跡的ハッカソン",
       cliped: false,
       period: {
-        start: dayjs().format("MM/DD"),
-        finish: dayjs().format("MM/DD"),
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
       },
     },
     {
@@ -109,8 +108,8 @@ export const getServerSideProps = async() => {
       title: "テスト",
       cliped: true,
       period: {
-        start: dayjs().format("MM/DD"),
-        finish: dayjs().format("MM/DD"),
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
       },
     },
     {
@@ -120,8 +119,8 @@ export const getServerSideProps = async() => {
       title: "テスト",
       cliped: false,
       period: {
-        start: dayjs().format("MM/DD"),
-        finish: dayjs().format("MM/DD"),
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
       },
     },
     {
@@ -131,8 +130,8 @@ export const getServerSideProps = async() => {
       title: "テスト",
       cliped: true,
       period: {
-        start: dayjs().format("MM/DD"),
-        finish: dayjs().format("MM/DD"),
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
       },
     },
     {
@@ -142,8 +141,8 @@ export const getServerSideProps = async() => {
       title: "テスト",
       cliped: true,
       period: {
-        start: dayjs().format("MM/DD"),
-        finish: dayjs().format("MM/DD"),
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
       },
     },
     {
@@ -153,8 +152,8 @@ export const getServerSideProps = async() => {
       title: "テスト",
       cliped: true,
       period: {
-        start: dayjs().format("MM/DD"),
-        finish: dayjs().format("MM/DD"),
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
       },
     },
     {
@@ -164,8 +163,8 @@ export const getServerSideProps = async() => {
       title: "テスト",
       cliped: true,
       period: {
-        start: dayjs().format("MM/DD"),
-        finish: dayjs().format("MM/DD"),
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
       },
     },
     {
@@ -175,8 +174,8 @@ export const getServerSideProps = async() => {
       title: "テスト",
       cliped: true,
       period: {
-        start: dayjs().format("MM/DD"),
-        finish: dayjs().format("MM/DD"),
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
       },
     },
   ];
