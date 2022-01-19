@@ -1,16 +1,16 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import { GetStaticProps } from "next";
-import { EventCard } from "../../components/Organisms/EventCard";
-import { EventSort } from "../../components/Organisms/EventSort";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import { Box, Flex, Spacer } from "@chakra-ui/layout";
-import { Button, Tag, TagLabel } from "@chakra-ui/react";
+import type { NextPage } from "next"
+import Head from "next/head"
+import { GetStaticProps } from "next"
+import { EventCard } from "../../components/Organisms/EventCard"
+import { EventSort } from "../../components/Organisms/EventSort"
+import Image from "next/image"
+import styles from "../styles/Home.module.css"
+import { Box, Flex, Spacer } from "@chakra-ui/layout"
+import { Button, Tag, TagLabel } from "@chakra-ui/react"
 
 type Props = {
-  tags: string[];
-};
+  tags: string[]
+}
 
 const Events: NextPage<Props> = (props) => {
   return (
@@ -28,24 +28,13 @@ const Events: NextPage<Props> = (props) => {
         </Flex>
       </main>
     </>
-  );
-};
+  )
+}
 
-export default Events;
+export default Events
 export const getStaticProps = async () => {
-  let tags = [
-    "音楽",
-    "新歓",
-    "ゆる募",
-    "学会",
-    "その他",
-    "音楽",
-    "新歓",
-    "ゆる募",
-    "学会",
-    "その他",
-  ];
+  let tags = ["音楽", "新歓", "ゆる募", "学会", "その他", "音楽", "新歓", "ゆる募", "学会", "その他"]
   return {
     props: { tags },
-  };
-};
+  }
+}
