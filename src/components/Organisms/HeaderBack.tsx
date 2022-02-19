@@ -20,6 +20,7 @@ export const HeaderBack: React.FC = (props) => {
           />
         </Flex>
         <Spacer />
+        {props.children}
       </Base>
     </>
   );
