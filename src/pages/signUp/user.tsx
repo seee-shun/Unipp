@@ -8,6 +8,7 @@ import { Box, Divider, Flex, Heading, Stack } from "@chakra-ui/layout"
 import { useSignUp } from "../../hooks/useSignUp"
 import { univListState } from "../../store/univListState"
 import { PrimaryButton } from "../../components/atoms/button/PrimaryButton"
+import router from "next/router"
 
 const User = () => {
   const [userName, setUserName] = useState("")
@@ -43,7 +44,7 @@ const User = () => {
           </InputGroup>
           <InputGroup>
             <Input placeholder="大学メールアドレス" value={email} onChange={onChangeEmail} />
-            <InputRightAddon children={univList.address} />
+            <InputRightAddon>{univList.address}</InputRightAddon>
           </InputGroup>
           <InputGroup>
             <Input
