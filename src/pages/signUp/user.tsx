@@ -18,10 +18,8 @@ const User = () => {
   let univEmail = ''
   if (univList.address !== undefined) {
     univEmail = `${email}${univList.address}`
-    console.log(univEmail);
   } else {
     univEmail = email;
-    console.log(univEmail)
   }
 
   const { signUp } = useSignUp()

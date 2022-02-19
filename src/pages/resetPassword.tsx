@@ -7,7 +7,7 @@ import { sendPasswordResetEmail } from "@firebase/auth"
 import { auth } from "../lib/firebase"
 import { PrimaryButton } from "../components/atoms/button/PrimaryButton"
 
-const resetPassword = () => {
+const ResetPassword = () => {
     const router = useRouter()
     const [email, setEmail] = useState('')
     const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)
@@ -18,9 +18,8 @@ const resetPassword = () => {
                 alert('メールを送信しました。')
                 router.push("/signIn")
             })
-            .catch((error) => {
-                const errorMessage = error.message;
-                alert(errorMessage)
+            .catch(() => {
+                alert('メールの送信に失敗しました。')
             });
     }
     return (
@@ -39,4 +38,4 @@ const resetPassword = () => {
     )
 }
 
-export default resetPassword
+export default ResetPassword

@@ -17,7 +17,7 @@ type Props = {
   univ: Univ | null
 }
 
-const selectUniv: VFC<Props> = memo(() => {
+const SelectUniv: VFC<Props> = memo(() => {
   const router = useRouter()
   const [searchKeyword, setSearchKeyword] = useState("")
   const [selectedUniv, setSelectedUniv] = useState({})
@@ -72,4 +72,4 @@ const selectUniv: VFC<Props> = memo(() => {
   )
 })
 
-export default selectUniv
+export default SelectUniv
