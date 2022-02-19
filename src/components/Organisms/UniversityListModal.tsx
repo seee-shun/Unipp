@@ -49,10 +49,10 @@ export const UniversityListModal: React.FC<Props> = (props) => {
                 <ModalBody>
                     <Accordion>                    
                             {accordions.map((item) => (
-                                <AccordionItem>
+                                <AccordionItem key={item.area}>
                                     <h2>
                                         <AccordionButton>
-                                            <Box flex='1' textAlign='left' key={item.area}>
+                                            <Box flex='1' textAlign='left'>
                                                 {item.area}
                                             </Box>
                                             <AccordionIcon />
