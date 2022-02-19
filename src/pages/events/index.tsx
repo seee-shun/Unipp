@@ -35,10 +35,10 @@ const Events: NextPage<Props> = (props) => {
         <Box h="100%">
           <Flex flexWrap="wrap" justifyContent="justify-between" w="100%">
             {props.events.map((event, index) => {
-              return <EventCard key={index} {...event} />;
+              // return <EventCard key={index} {...event} />;
             })}
             {props.events.map((event, index) => {
-              return <EventCard finished key={index} {...event} />;
+              // return <EventCard finished key={index} {...event} />;
             })}
           </Flex>
         </Box>
