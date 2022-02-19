@@ -44,8 +44,8 @@ const Events: NextPage<Props> = (props) => {
         </Box>
       </main>
     </>
-  );
-};
+  )
+}
 
 export const getServerSideProps = () => {
   // ここでfirebaseのコードを書く or Recoilのコード

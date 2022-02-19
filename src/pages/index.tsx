@@ -371,8 +371,8 @@ const Home: NextPage = () => {
         </Box>      
       </main>
     </>
-  );
-};
+  )
+}
 
 const features = [
   { title: '近くの大学生と情報共有できる',

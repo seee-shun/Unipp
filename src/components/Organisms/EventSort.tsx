@@ -1,10 +1,10 @@
-import React from "react";
-import { Box, Flex, Button, Spacer, Tag, TagLabel } from "@chakra-ui/react";
-import { EventTag } from "../Molecules/EventTag";
+import React from "react"
+import { Box, Flex, Button, Spacer, Tag, TagLabel } from "@chakra-ui/react"
+import { EventTag } from "../Molecules/EventTag"
 
 type Props = {
-  tags: string[];
-};
+  tags: string[]
+}
 
 export const EventSort: React.FC<Props> = ({ tags }) => {
   return (
@@ -28,10 +28,10 @@ export const EventSort: React.FC<Props> = ({ tags }) => {
           overflowY="hidden"
         >
           {tags.map((data, index) => {
-            return <EventTag key={index}>{data}</EventTag>;
+            return <EventTag key={index}>{data}</EventTag>
           })}
         </Flex>
       </Box>
     </>
-  );
-};
+  )
+}

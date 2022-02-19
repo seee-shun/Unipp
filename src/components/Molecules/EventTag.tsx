@@ -1,5 +1,5 @@
-import React from "react";
-import { Tag, TagLabel } from "@chakra-ui/tag";
+import React from "react"
+import { Tag, TagLabel } from "@chakra-ui/tag"
 
 type Props = {
   size?: (string & {}) | "sm" | "md" | "lg";
@@ -20,5 +20,5 @@ export const EventTag: React.FC<Props> = (props) => {
         <TagLabel>{props.children}</TagLabel>
       </Tag>
     </>
-  );
-};
+  )
+}

@@ -82,5 +82,5 @@ export const EventCard: React.FC<Props> = (props) => {
         </Box>
       </Box>
     </>
-  );
-};
+  )
+}
