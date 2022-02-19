@@ -1,6 +1,6 @@
-import React from "react";
-import { AppLogo } from "../atoms/appLogo";
-import { Flex, Spacer, Box, Avatar } from "@chakra-ui/react";
+import React from "react"
+import { AppLogo } from "../atoms/appLogo"
+import { Flex, Spacer, Box, Avatar } from "@chakra-ui/react"
 
 export const AppHeader: React.FC = ({ children }) => {
   return (
@@ -12,14 +12,10 @@ export const AppHeader: React.FC = ({ children }) => {
           </Flex>
           <Spacer />
           <Box>
-            <Avatar
-              size="md"
-              name="user name"
-              src="https://bit.ly/ryan-florence"
-            />{" "}
+            <Avatar size="md" name="user name" src="https://bit.ly/ryan-florence" />{" "}
           </Box>
         </Flex>
       </Box>
     </>
-  );
-};
+  )
+}

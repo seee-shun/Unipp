@@ -1,6 +1,6 @@
-import React from "react";
-import { Box, Flex, Grid, GridItem } from "@chakra-ui/react";
-import { AppHeader as Header } from "../Organisms/AppHeader";
+import React from "react"
+import { Box, Flex, Grid, GridItem } from "@chakra-ui/react"
+import { AppHeader as Header } from "../Organisms/AppHeader"
 
 export const AppBase: React.FC = ({ children }) => {
   return (
@@ -18,5 +18,5 @@ export const AppBase: React.FC = ({ children }) => {
         </GridItem>
       </Grid>
     </>
-  );
-};
+  )
+}

@@ -1,18 +1,10 @@
-import React from "react";
-import {
-  Box,
-  Flex,
-  Grid,
-  GridItem,
-  Spacer,
-  Tag,
-  TagLabel,
-} from "@chakra-ui/react";
-import Image from "next/image";
+import React from "react"
+import { Box, Flex, Grid, GridItem, Spacer, Tag, TagLabel } from "@chakra-ui/react"
+import Image from "next/image"
 
 type Props = {
-  read?: boolean;
-};
+  read?: boolean
+}
 
 export const EventCard: React.FC<Props> = ({ children, read }) => {
   const bgImage = [
@@ -25,7 +17,7 @@ export const EventCard: React.FC<Props> = ({ children, read }) => {
     "https://source.unsplash.com/user/erondu/180x15",
     "https://source.unsplash.com/user/erondu/180x15",
     "https://source.unsplash.com/user/erondu/180x15",
-  ];
+  ]
 
   return (
     <>
@@ -52,12 +44,7 @@ export const EventCard: React.FC<Props> = ({ children, read }) => {
             >
               <Flex alignItems="flex-start">
                 <Box>
-                  <Tag
-                    size="md"
-                    borderRadius="full"
-                    variant="solid"
-                    colorScheme="blue"
-                  >
+                  <Tag size="md" borderRadius="full" variant="solid" colorScheme="blue">
                     <TagLabel>勉強会</TagLabel>
                   </Tag>
                 </Box>
@@ -77,8 +64,8 @@ export const EventCard: React.FC<Props> = ({ children, read }) => {
               </Box>
             </Flex>
           </Box>
-        );
+        )
       })}
     </>
-  );
-};
+  )
+}
