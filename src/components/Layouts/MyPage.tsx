@@ -1,8 +1,8 @@
 import { Container } from "@chakra-ui/layout";
-import { HeaderBack as Header } from "../Organisms/HeaderBack";
+import { HeaderMyPage as Header } from "../Organisms/HeaderMyPage";
 import React from "react";
 
-export const OnlyBack: React.FC = ({ children }) => {
+export const MyPage: React.FC = ({ children }) => {
   return (
     <>
       <Header />
