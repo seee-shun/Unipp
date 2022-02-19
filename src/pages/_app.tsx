@@ -1,19 +1,21 @@
-import type { AppProps } from "next/app"
-import { ChakraProvider } from "@chakra-ui/react"
+import type { AppProps } from "next/app";
+import { ChakraProvider } from "@chakra-ui/react";
+import { Basic } from "../components/Layouts/Basic";
+import type { ReactElement, ReactNode } from "react";
+import type { NextPage } from "next";
 
-import { AppBase } from "../components/Layouts/AppBase"
-import theme from "../styles/theme"
-import { RecoilRoot } from "recoil"
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
 
-function MyApp({ Component, pageProps }: AppProps) {
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
+  const getLayout = Component.getLayout || ((page) => <Basic>{page}</Basic>);
   return (
-    <RecoilRoot>
-      <ChakraProvider theme={theme}>
-        <AppBase>
-          <Component {...pageProps} />
-        </AppBase>
-      </ChakraProvider>
-    </RecoilRoot>
-  )
-}
-export default MyApp
+    <ChakraProvider>{getLayout(<Component {...pageProps} />)}</ChakraProvider>
+  );
+};
+export default MyApp;

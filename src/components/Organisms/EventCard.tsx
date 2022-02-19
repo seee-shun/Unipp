@@ -1,71 +1,86 @@
-import React from "react"
-import { Box, Flex, Grid, GridItem, Spacer, Tag, TagLabel } from "@chakra-ui/react"
-import Image from "next/image"
+import React from "react";
+import Image from "next/image";
+import styled from "@emotion/styled";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { useRouter } from "next/router";
+import { EventTag } from "../Molecules/EventTag";
+import { EventClipButton } from "../Molecules/EventClipButton";
+import { Box, Flex, Spacer, Text } from "@chakra-ui/layout";
 
 type Props = {
-  read?: boolean
-}
+  type: string;
+  host: string;
+  image: string;
+  title: string;
+  cliped: boolean;
+  finished?: boolean;
+  period: {
+    start: any;
+    finish: any;
+  };
+};
 
-export const EventCard: React.FC<Props> = ({ children, read }) => {
-  const bgImage = [
-    "https://source.unsplash.com/user/erondu/180x15",
-    "https://source.unsplash.com/user/erondu/180x15",
-    "https://source.unsplash.com/user/erondu/180x15",
-    "https://source.unsplash.com/user/erondu/180x15",
-    "https://source.unsplash.com/user/erondu/180x15",
-    "https://source.unsplash.com/user/erondu/180x15",
-    "https://source.unsplash.com/user/erondu/180x15",
-    "https://source.unsplash.com/user/erondu/180x15",
-    "https://source.unsplash.com/user/erondu/180x15",
-  ]
+const EventCardImage = styled.div`
+  .event-image {
+    border-radius: 10px;
+    filter: brightness(0.8);
+  }
+`;
+
+export const EventCard: React.FC<Props> = (props) => {
+  const router = useRouter();
+  const pushToDetails = () => {
+    router.push("events/details");
+  };
 
   return (
     <>
-      {bgImage.map((data, i) => {
-        return (
-          <Box
-            w="165px"
-            h="125px"
-            key={i}
-            bgImg={`${data}${i}`}
-            objectFit="cover"
-            borderRadius="10px"
-            filter={read ? "brightness(0.4)" : ""}
-          >
-            {/* <Image src={bgImage} width={200} height={100} alt="this is Image"/> */}
-            <Flex
-              flexDirection="column"
-              color="white"
-              height="inherit"
-              width="inherit"
-              p="12px"
-              bgColor="#00000040"
-              borderRadius="inherit"
-            >
+      <Box w={{ base: "50%", md: "33%", lg: "25%" }} p={1}>
+        <Box
+          objectFit="cover"
+          borderRadius="auto"
+          filter={props.finished ? "brightness(0.4)" : ""}
+          position="relative"
+          onClick={pushToDetails}
+        >
+          <EventCardImage>
+            <Image
+              className="event-image"
+              src={props.image}
+              width={165}
+              height={125}
+              layout="responsive"
+            />
+          </EventCardImage>
+          <Box position="absolute" top="0" width="100%">
+            <Flex flexDirection="column" color="white" p="8px">
               <Flex alignItems="flex-start">
-                <Box>
-                  <Tag size="md" borderRadius="full" variant="solid" colorScheme="blue">
-                    <TagLabel>勉強会</TagLabel>
-                  </Tag>
-                </Box>
+                <EventTag size="md">{props.type}</EventTag>
                 <Spacer />
-                <Box>
-                  <Flex flexDirection="column" alignItems="center">
-                    <Box>★</Box>
-                    <Box fontSize="4px">99</Box>
-                  </Flex>
-                </Box>
+                <EventClipButton cliped={props.cliped} />
               </Flex>
-              <Spacer />
-              <Box textAlign="left" fontSize="4px" fontWeight="bold">
-                <h2>2021/11/11</h2>
-                <h2>団体</h2>
-                <h2>タイトル</h2>
+            </Flex>
+          </Box>
+          <Box position="absolute" bottom="0">
+            <Flex p="12px">
+              <Box
+                textAlign="left"
+                fontSize={{ base: "xs", lg: "medium" }}
+                fontWeight="bold"
+                color="white"
+              >
+                <Text fontWeight="bold">{props.title}</Text>
+                <Text>{props.host}</Text>
+                <Text>
+                  {props.period.start}
+                  <ArrowForwardIcon h={4} w={4} />
+                  {props.period.finish}
+                </Text>
               </Box>
             </Flex>
           </Box>
-        )
-      })}
+        </Box>
+      </Box>
     </>
   )
 }

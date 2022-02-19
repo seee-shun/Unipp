@@ -11,10 +11,11 @@
     "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}'"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^1.0.15",
+    "@chakra-ui/icons": "^1.1.1",
     "@chakra-ui/react": "^1.6.9",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "dayjs": "^1.10.7",
     "escape-string-regexp": "^5.0.0",
     "firebase": "^9.4.1",
     "framer-motion": "^4",

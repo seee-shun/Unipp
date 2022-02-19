@@ -1,6 +1,6 @@
-import React from "react"
-import { Box, Flex, Grid, GridItem } from "@chakra-ui/react"
-import { AppHeader as Header } from "../Organisms/AppHeader"
+import React from "react";
+import { Box, Flex, Grid, GridItem } from "@chakra-ui/react";
+import { HeaderBasic as Header } from "../Organisms/HeaderBasic";
 
 export const AppBase: React.FC = ({ children }) => {
   return (
