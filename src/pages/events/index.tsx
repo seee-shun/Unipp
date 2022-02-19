@@ -69,8 +69,8 @@ export const getServerSideProps = () => {
       title: "テスト",
       cliped: false,
       period: {
-        start: dayjs().format("MM/DD"),
-        finish: dayjs().format("MM/DD"),
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
       },
     },
     {
@@ -80,8 +80,8 @@ export const getServerSideProps = () => {
       title: "奇跡的ハッカソン",
       cliped: false,
       period: {
-        start: dayjs().format("MM/DD"),
-        finish: dayjs().format("MM/DD"),
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
       },
     },
     {
@@ -91,8 +91,8 @@ export const getServerSideProps = () => {
       title: "テスト",
       cliped: true,
       period: {
-        start: dayjs().format("MM/DD"),
-        finish: dayjs().format("MM/DD"),
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
       },
     },
     {
@@ -102,8 +102,8 @@ export const getServerSideProps = () => {
       title: "テスト",
       cliped: false,
       period: {
-        start: dayjs().format("MM/DD"),
-        finish: dayjs().format("MM/DD"),
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
       },
     },
     {
@@ -113,8 +113,8 @@ export const getServerSideProps = () => {
       title: "テスト",
       cliped: true,
       period: {
-        start: dayjs().format("MM/DD"),
-        finish: dayjs().format("MM/DD"),
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
       },
     },
     {
@@ -124,8 +124,8 @@ export const getServerSideProps = () => {
       title: "テスト",
       cliped: true,
       period: {
-        start: dayjs().format("MM/DD"),
-        finish: dayjs().format("MM/DD"),
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
       },
     },
     {
@@ -135,8 +135,8 @@ export const getServerSideProps = () => {
       title: "テスト",
       cliped: true,
       period: {
-        start: dayjs().format("MM/DD"),
-        finish: dayjs().format("MM/DD"),
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
       },
     },
     {
@@ -146,8 +146,8 @@ export const getServerSideProps = () => {
       title: "テスト",
       cliped: true,
       period: {
-        start: dayjs().format("MM/DD"),
-        finish: dayjs().format("MM/DD"),
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
       },
     },
     {
@@ -157,8 +157,8 @@ export const getServerSideProps = () => {
       title: "テスト",
       cliped: true,
       period: {
-        start: dayjs().format("MM/DD"),
-        finish: dayjs().format("MM/DD"),
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
       },
     },
   ];
