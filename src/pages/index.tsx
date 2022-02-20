@@ -13,52 +13,13 @@ import {
   Text,
   useBreakpointValue,
   Container,
-  Link,
   useColorModeValue,
   SimpleGrid,
   Center,
   Heading,
   Icon,
   Divider,
-  HStack,
 } from "@chakra-ui/react";
-import { CheckIcon } from "@chakra-ui/icons";
-//import { FcAssistant, FcDonate, FcInTransit } from "react-icons/fc";
-
-const IMAGE = '/iphone.png'
-
-interface FeatureProps {
-  title: string;
-  text: string;
-  background: string;
-}
-
-const feature = Array.apply(null, Array(8)).map(function (x, i) {
-  return {
-    id: i,
-    title: "Lorem ipsum dolor sit amet",
-    text: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam.",
-  };
-});
-
-const Feature = ({ title, text }: FeatureProps) => {
-  return (
-    <Stack>
-      {/* <Flex
-        w={16}
-        h={16}
-        align={"center"}
-        justify={"center"}
-        color={"white"}
-        rounded={"full"}
-        bg={"gray.100"}
-        mb={1}
-      ></Flex> */}
-      <Text fontWeight={1000}>{title}</Text>
-      <Text color={"gray.600"}>{text}</Text>
-    </Stack>
-  );
-};
 
 const Home: NextPage = () => {
   return (
@@ -98,12 +59,12 @@ const Home: NextPage = () => {
                   color={"white"}
                   _hover={{ bg: "whiteAlpha.600" }}
                   as="a"
-                  href="https://google.com"// あとで変更が必要
+                  href="/signIn"// あとで変更が必要
                   size="lg"
                   w={{base: "180px", lg:"230px"}}
                   h="50px"
                 >
-                  今すぐ使ってみる
+                  はじめる
                 </Button>
               </Stack>
             </Stack>
@@ -335,19 +296,20 @@ const Home: NextPage = () => {
           
         <Stack> 
             <Button
-            p={6}
-            m={6}
+              p={6}
+              m={6}
               rounded={'full'}
               bg={'gray.500'}
               color={'white'}
+              as="a"
+              href="/signIn"
               _hover={{
                 bg: 'gray.600',
               }}>
-              今すぐはじめる
+              はじめる
             </Button>
     </Stack>
       </Flex>
-
         <Box
           bg={useColorModeValue("gray.200", "gray.900")}
           color={useColorModeValue("gray.700", "gray.200")}
