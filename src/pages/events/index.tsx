@@ -1,13 +1,12 @@
 import type { NextPage } from "next"
 import Head from "next/head"
 import { EventCard } from "../../components/Organisms/EventCard"
-import { EventSort } from "../../components/Organisms/EventSort"
 import { Box, Flex } from "@chakra-ui/layout"
 import { IconButton } from "@chakra-ui/react"
 import { AddIcon } from "@chakra-ui/icons"
 import dayjs from "dayjs"
-import { firestore } from "../../lib/firebase"
-import { collection, getDocs, query, orderBy } from "firebase/firestore"
+// import { firestore } from "../../lib/firebase"
+// import { collection, getDocs, query } from "firebase/firestore"
 import { useRouter } from "next/router"
 
 type Props = {
@@ -41,7 +40,6 @@ const Events: NextPage<Props> = (props) => {
         <meta name="description" content="Events of Unipp for every student" />
       </Head>
       <main>
-        {/* <EventSort tags={props.tags} /> */}
         <Box h="calc(100vh - 80px)" overflowY="scroll">
           <IconButton
             colorScheme="pink"
@@ -60,9 +58,6 @@ const Events: NextPage<Props> = (props) => {
             {props.events.map((event, index) => {
               return <EventCard key={index} {...event} />
             })}
-            {props.events.map((event, index) => {
-              return <EventCard finished key={index} {...event} />
-            })}
           </Flex>
         </Box>
       </main>
@@ -73,11 +68,11 @@ const Events: NextPage<Props> = (props) => {
 export const getServerSideProps = async () => {
   // ここでfirebaseのコードを書く or Recoilのコード
 
-  const q = query(collection(firestore, "events"))
-  const EventsSnapshot = await getDocs(q)
-  EventsSnapshot.forEach((doc) => {
-    console.log(doc.data())
-  })
+  // const q = query(collection(firestore, "events"))
+  // const EventsSnapshot = await getDocs(q)
+  // EventsSnapshot.forEach((doc) => {
+  //   console.log(doc.data())
+  // })
 
   const tags = ["音楽", "新歓", "ゆる募", "学会", "サークル・イベント", "勉強会", "朝活", "旅行"]
   const start = new Date("December 17, 1995 03:24:00").toJSON()
