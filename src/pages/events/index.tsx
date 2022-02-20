@@ -1,5 +1,5 @@
 import type { NextPage } from "next"
-import Head from "next/head"
+// import Head from "next/head"
 import { EventCard } from "../../components/Organisms/EventCard"
 import { Box, Flex } from "@chakra-ui/layout"
 import { IconButton } from "@chakra-ui/react"
@@ -32,9 +32,9 @@ const Events: NextPage<Props> = (props) => {
   const pushToEventPost = () => {
     router.push("events/post")
   }
-  const tags = ["音楽", "新歓", "ゆる募", "学会", "サークル・イベント", "勉強会", "朝活", "旅行"]
-  const start = new Date("December 17, 1995 03:24:00").toJSON()
-  const finish = new Date("December 17, 1995 03:24:00").toJSON()
+  // const tags = ["音楽", "新歓", "ゆる募", "学会", "サークル・イベント", "勉強会", "朝活", "旅行"]
+  // const start = new Date("December 17, 1995 03:24:00").toJSON()
+  // const finish = new Date("December 17, 1995 03:24:00").toJSON()
   const events = [
     {
       type: "新歓",
@@ -139,10 +139,10 @@ const Events: NextPage<Props> = (props) => {
 
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>Unipp:Events</title>
         <meta name="description" content="Events of Unipp for every student" />
-      </Head>
+      </Head> */}
       <main>
         <Box h="calc(100vh - 80px)" overflowY="scroll">
           <IconButton
