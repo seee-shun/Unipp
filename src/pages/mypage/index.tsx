@@ -154,14 +154,14 @@ const Mypage: NextPageWithLayout = (props) => {
               {currentTab === "cliped" && (
                 <Flex flexWrap="wrap" justifyContent="justify-between" w="100%">
                   {props.userClipedEvents.map((event, index) => {
-                    return <EventCard key={index} {...event} />;
+                    // return <EventCard key={index} {...event} />;
                   })}
                 </Flex>
               )}
               {currentTab === "posted" && (
                 <Flex flexWrap="wrap" justifyContent="justify-between" w="100%">
                   {props.userPostedEvents.map((event, index) => {
-                    return <EventCard key={index} {...event} />;
+                    // return <EventCard key={index} {...event} />;
                   })}
                 </Flex>
               )}

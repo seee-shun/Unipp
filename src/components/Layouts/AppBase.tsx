@@ -18,5 +18,5 @@ export const AppBase: React.FC = ({ children }) => {
         </GridItem>
       </Grid>
     </>
-  );
-};
+  )
+}

@@ -43,19 +43,20 @@ const Events: NextPage<Props> = (props) => {
         {/* <EventSort tags={props.tags} /> */}
         <Box h="100%">
           <Button onClick={pushToEventPost}></Button>
+
           <Flex flexWrap="wrap" justifyContent="justify-between" w="100%">
             {props.events.map((event, index) => {
-              return <EventCard key={index} {...event} />;
+              // return <EventCard key={index} {...event} />;
             })}
             {props.events.map((event, index) => {
-              return <EventCard finished key={index} {...event} />;
+              // return <EventCard finished key={index} {...event} />;
             })}
           </Flex>
         </Box>
       </main>
     </>
-  );
-};
+  )
+}
 
 export const getServerSideProps = async () => {
   // ここでfirebaseのコードを書く or Recoilのコード
