@@ -5,16 +5,16 @@ import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/
 import { auth } from "../lib/firebase"
 
 type Props = {
-  univEmail: string
+  email: string
   password: string
 }
 
 export const useSignUp = () => {
   const router = useRouter()
   const signUp = useCallback((props: Props) => {
-    const { univEmail, password } = props
+    const { email, password } = props
     try {
-      createUserWithEmailAndPassword(auth, univEmail, password).then((userCredential) => {
+      createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
         auth.languageCode = 'ja'
         const user = userCredential.user
         sendEmailVerification(user)
