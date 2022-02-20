@@ -39,7 +39,7 @@ const Events: NextPage<Props> = (props) => {
     {
       type: "新歓",
       host: "おれ",
-      image: "",
+      image: "https://source.unsplash.com/user/erondu/1800x1500",
       title: "テスト",
       cliped: false,
       period: {
