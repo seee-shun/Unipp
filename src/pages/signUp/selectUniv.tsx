@@ -41,7 +41,7 @@ const SelectUniv: VFC<Props> = memo(() => {
   console.log("rendering")
   const onClickUnivRegister = () => router.push("./user")
   return (
-    <Flex>
+    <Flex justifyContent="center">
       <Box>
         <Heading as="h1" size="lg" textAlign="center">
           アカウントを作成
@@ -63,7 +63,7 @@ const SelectUniv: VFC<Props> = memo(() => {
           <PrimaryButton disabled={!Object.keys(selectedUniv).length} onClick={onClickUnivRegister}>つぎへ</PrimaryButton>
         </Stack>
         <Stack pt={6}>
-          <Link href='/signIn'>ログインの方はこちら</Link>
+          <Link href="/signIn">ログインの方はこちら</Link>
         </Stack>
       </Box>
     </Flex>
