@@ -91,50 +91,6 @@ const Events: NextPage<Props> = (props) => {
         finish: dayjs().format("MM月DD日"),
       },
     },
-    {
-      type: "新歓",
-      host: "おれ",
-      image: "https://source.unsplash.com/user/erondu/1800x1505",
-      title: "テスト",
-      cliped: true,
-      period: {
-        start: dayjs().format("MM月DD日"),
-        finish: dayjs().format("MM月DD日"),
-      },
-    },
-    {
-      type: "新歓",
-      host: "おれ",
-      image: "https://source.unsplash.com/user/erondu/1800x1506",
-      title: "テスト",
-      cliped: true,
-      period: {
-        start: dayjs().format("MM月DD日"),
-        finish: dayjs().format("MM月DD日"),
-      },
-    },
-    {
-      type: "新歓",
-      host: "おれ",
-      image: "https://source.unsplash.com/user/erondu/1800x1507",
-      title: "テスト",
-      cliped: true,
-      period: {
-        start: dayjs().format("MM月DD日"),
-        finish: dayjs().format("MM月DD日"),
-      },
-    },
-    {
-      type: "新歓",
-      host: "おれ",
-      image: "https://source.unsplash.com/user/erondu/1800x1508",
-      title: "テスト",
-      cliped: true,
-      period: {
-        start: dayjs().format("MM月DD日"),
-        finish: dayjs().format("MM月DD日"),
-      },
-    },
   ]
 
   return (
