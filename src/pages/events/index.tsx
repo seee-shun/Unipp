@@ -42,99 +42,99 @@ const Events: NextPage<Props> = (props) => {
       image: "https://source.unsplash.com/user/erondu/1800x1500",
       title: "テスト",
       cliped: false,
-      // period: {
-      //   start: dayjs().format("MM月DD日"),
-      //   finish: dayjs().format("MM月DD日"),
-      // },
+      period: {
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
+      },
     },
-    // {
-    //   type: "新歓",
-    //   host: "未来研究所",
-    //   image: "https://source.unsplash.com/user/erondu/1800x1501",
-    //   title: "奇跡的ハッカソン",
-    //   cliped: false,
-    //   period: {
-    //     start: dayjs().format("MM月DD日"),
-    //     finish: dayjs().format("MM月DD日"),
-    //   },
-    // },
-    // {
-    //   type: "新歓",
-    //   host: "おれ",
-    //   image: "https://source.unsplash.com/user/erondu/1800x1501",
-    //   title: "テスト",
-    //   cliped: true,
-    //   period: {
-    //     start: dayjs().format("MM月DD日"),
-    //     finish: dayjs().format("MM月DD日"),
-    //   },
-    // },
-    // {
-    //   type: "新歓",
-    //   host: "おれ",
-    //   image: "https://source.unsplash.com/user/erondu/1800x1503",
-    //   title: "テスト",
-    //   cliped: false,
-    //   period: {
-    //     start: dayjs().format("MM月DD日"),
-    //     finish: dayjs().format("MM月DD日"),
-    //   },
-    // },
-    // {
-    //   type: "新歓",
-    //   host: "おれ",
-    //   image: "https://source.unsplash.com/user/erondu/1800x1504",
-    //   title: "テスト",
-    //   cliped: true,
-    //   period: {
-    //     start: dayjs().format("MM月DD日"),
-    //     finish: dayjs().format("MM月DD日"),
-    //   },
-    // },
-    // {
-    //   type: "新歓",
-    //   host: "おれ",
-    //   image: "https://source.unsplash.com/user/erondu/1800x1505",
-    //   title: "テスト",
-    //   cliped: true,
-    //   period: {
-    //     start: dayjs().format("MM月DD日"),
-    //     finish: dayjs().format("MM月DD日"),
-    //   },
-    // },
-    // {
-    //   type: "新歓",
-    //   host: "おれ",
-    //   image: "https://source.unsplash.com/user/erondu/1800x1506",
-    //   title: "テスト",
-    //   cliped: true,
-    //   period: {
-    //     start: dayjs().format("MM月DD日"),
-    //     finish: dayjs().format("MM月DD日"),
-    //   },
-    // },
-    // {
-    //   type: "新歓",
-    //   host: "おれ",
-    //   image: "https://source.unsplash.com/user/erondu/1800x1507",
-    //   title: "テスト",
-    //   cliped: true,
-    //   period: {
-    //     start: dayjs().format("MM月DD日"),
-    //     finish: dayjs().format("MM月DD日"),
-    //   },
-    // },
-    // {
-    //   type: "新歓",
-    //   host: "おれ",
-    //   image: "https://source.unsplash.com/user/erondu/1800x1508",
-    //   title: "テスト",
-    //   cliped: true,
-    //   period: {
-    //     start: dayjs().format("MM月DD日"),
-    //     finish: dayjs().format("MM月DD日"),
-    //   },
-    // },
+    {
+      type: "新歓",
+      host: "未来研究所",
+      image: "https://source.unsplash.com/user/erondu/1800x1501",
+      title: "奇跡的ハッカソン",
+      cliped: false,
+      period: {
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
+      },
+    },
+    {
+      type: "新歓",
+      host: "おれ",
+      image: "https://source.unsplash.com/user/erondu/1800x1501",
+      title: "テスト",
+      cliped: true,
+      period: {
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
+      },
+    },
+    {
+      type: "新歓",
+      host: "おれ",
+      image: "https://source.unsplash.com/user/erondu/1800x1503",
+      title: "テスト",
+      cliped: false,
+      period: {
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
+      },
+    },
+    {
+      type: "新歓",
+      host: "おれ",
+      image: "https://source.unsplash.com/user/erondu/1800x1504",
+      title: "テスト",
+      cliped: true,
+      period: {
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
+      },
+    },
+    {
+      type: "新歓",
+      host: "おれ",
+      image: "https://source.unsplash.com/user/erondu/1800x1505",
+      title: "テスト",
+      cliped: true,
+      period: {
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
+      },
+    },
+    {
+      type: "新歓",
+      host: "おれ",
+      image: "https://source.unsplash.com/user/erondu/1800x1506",
+      title: "テスト",
+      cliped: true,
+      period: {
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
+      },
+    },
+    {
+      type: "新歓",
+      host: "おれ",
+      image: "https://source.unsplash.com/user/erondu/1800x1507",
+      title: "テスト",
+      cliped: true,
+      period: {
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
+      },
+    },
+    {
+      type: "新歓",
+      host: "おれ",
+      image: "https://source.unsplash.com/user/erondu/1800x1508",
+      title: "テスト",
+      cliped: true,
+      period: {
+        start: dayjs().format("MM月DD日"),
+        finish: dayjs().format("MM月DD日"),
+      },
+    },
   ]
 
   return (
