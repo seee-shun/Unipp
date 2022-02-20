@@ -1,5 +1,5 @@
 import type { NextPage } from "next"
-// import Head from "next/head"
+import Head from "next/head"
 import { EventCard } from "../../components/Organisms/EventCard"
 import { Box, Flex } from "@chakra-ui/layout"
 import { IconButton } from "@chakra-ui/react"
@@ -42,10 +42,10 @@ const Events: NextPage<Props> = (props) => {
       image: "https://source.unsplash.com/user/erondu/1800x1500",
       title: "テスト",
       cliped: false,
-      period: {
-        start: dayjs().format("MM月DD日"),
-        finish: dayjs().format("MM月DD日"),
-      },
+      // period: {
+      //   start: dayjs().format("MM月DD日"),
+      //   finish: dayjs().format("MM月DD日"),
+      // },
     },
     // {
     //   type: "新歓",
@@ -139,10 +139,10 @@ const Events: NextPage<Props> = (props) => {
 
   return (
     <>
-      {/* <Head>
+      <Head>
         <title>Unipp:Events</title>
         <meta name="description" content="Events of Unipp for every student" />
-      </Head> */}
+      </Head>
       <main>
         <Box h="calc(100vh - 80px)" overflowY="scroll">
           <IconButton
