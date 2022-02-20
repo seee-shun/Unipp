@@ -33,8 +33,12 @@ const Events: NextPage<Props> = (props) => {
     router.push("events/post")
   }
   // const tags = ["音楽", "新歓", "ゆる募", "学会", "サークル・イベント", "勉強会", "朝活", "旅行"]
-  // const start = new Date("December 17, 1995 03:24:00").toJSON()
-  // const finish = new Date("December 17, 1995 03:24:00").toJSON()
+  const start = new Date("February 28, 1995 03:24:00").toJSON()
+  const start2 = new Date("February 24, 1995 03:24:00").toJSON()
+  const start3 = new Date("February 22, 1995 03:24:00").toJSON()
+  const finish = new Date("March 4, 1995 03:24:00").toJSON()
+  const finish2 = new Date("March 12, 1995 03:24:00").toJSON()
+  const finish3 = new Date("March 6, 1995 03:24:00").toJSON()
   const events = [
     {
       type: "新歓",
@@ -43,52 +47,52 @@ const Events: NextPage<Props> = (props) => {
       title: "テスト",
       cliped: false,
       period: {
-        start: dayjs().format("MM月DD日"),
-        finish: dayjs().format("MM月DD日"),
+        start: dayjs(start).format("MM月DD日"),
+        finish: dayjs(finish).format("MM月DD日"),
       },
     },
     {
       type: "新歓",
       host: "未来研究所",
-      image: "https://source.unsplash.com/user/erondu/1800x1501",
+      image: "https://source.unsplash.com/user/erondu/1800x1510",
       title: "奇跡的ハッカソン",
       cliped: false,
       period: {
-        start: dayjs().format("MM月DD日"),
-        finish: dayjs().format("MM月DD日"),
+        start: dayjs(start2).format("MM月DD日"),
+        finish: dayjs(finish2).format("MM月DD日"),
       },
     },
     {
       type: "新歓",
-      host: "おれ",
-      image: "https://source.unsplash.com/user/erondu/1800x1501",
+      host: "Y-lab",
+      image: "https://source.unsplash.com/user/erondu/1800x1490",
       title: "テスト",
       cliped: true,
       period: {
         start: dayjs().format("MM月DD日"),
-        finish: dayjs().format("MM月DD日"),
+        finish: dayjs(finish3).format("MM月DD日"),
       },
     },
     {
       type: "新歓",
-      host: "おれ",
-      image: "https://source.unsplash.com/user/erondu/1800x1503",
+      host: "Ayaka",
+      image: "https://source.unsplash.com/user/erondu/1800x1600",
       title: "テスト",
       cliped: false,
       period: {
         start: dayjs().format("MM月DD日"),
-        finish: dayjs().format("MM月DD日"),
+        finish: dayjs(finish2).format("MM月DD日"),
       },
     },
     {
       type: "新歓",
-      host: "おれ",
-      image: "https://source.unsplash.com/user/erondu/1800x1504",
+      host: "sayNo",
+      image: "https://source.unsplash.com/user/erondu/1700x1504",
       title: "テスト",
       cliped: true,
       period: {
         start: dayjs().format("MM月DD日"),
-        finish: dayjs().format("MM月DD日"),
+        finish: dayjs(finish3).format("MM月DD日"),
       },
     },
   ]
