@@ -22,11 +22,10 @@ const SelectUniv: VFC<Props> = memo(() => {
   const [searchKeyword, setSearchKeyword] = useState("")
   const [selectedUniv, setSelectedUniv] = useState({})
   const setUnivList = useSetRecoilState(univListState)
-
+  console.log(selectedUniv)
   const onChangeUniv = (e: ChangeEvent<HTMLInputElement>) => setSearchKeyword(e.target.value)
   const onClickUniv = (univ: Univ) => {
     setSelectedUniv(univ)
-    console.log(selectedUniv)
     setUnivList({
       name: univ.name,
       address: univ.address,
@@ -58,11 +57,10 @@ const SelectUniv: VFC<Props> = memo(() => {
                 <Button variant="ghost" onClick={() => onClickUniv(univ)}>
                   {univ.name}
                 </Button>
-
               </ListItem>
             ))}
           </List>
-          <PrimaryButton onClick={onClickUnivRegister}>つぎへ</PrimaryButton>
+          <PrimaryButton disabled={!Object.keys(selectedUniv).length} onClick={onClickUnivRegister}>つぎへ</PrimaryButton>
         </Stack>
         <Stack pt={6}>
           <Link href='/signIn'>ログインの方はこちら</Link>
