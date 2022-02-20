@@ -131,7 +131,7 @@ const Post: NextPage = () => {
           <FormControl id="number">
             <FormLabel>定員</FormLabel>
             <Input type="number" />
-            <FormHelperText>We'll never share your email.</FormHelperText>
+            <FormHelperText>never share your email.</FormHelperText>
           </FormControl>
           <FormControl id="url">
             <FormLabel>関連リンク</FormLabel>

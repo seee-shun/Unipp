@@ -4,7 +4,7 @@ import { AppLogo } from "../atoms/appLogo"
 import { HeaderBase as Base } from "./HeaderBase"
 import { Avatar, color, Text } from "@chakra-ui/react"
 import { Spacer, Flex } from "@chakra-ui/layout"
-import { useBreakpointValue } from "@chakra-ui/media-query"
+// import { useBreakpointValue } from "@chakra-ui/media-query"
 import { useRouter } from "next/router"
 
 export const HeaderBasic: React.FC = (props) => {
@@ -19,7 +19,8 @@ export const HeaderBasic: React.FC = (props) => {
         {router.pathname !== "/" && (
           <Flex alignItems="center">
             <Link href="/mypage">
-              <Avatar size={useBreakpointValue({ base: "sm", md: "md" })} src="https://bit.ly/dan-abramov"></Avatar>
+              {/* <Avatar size={useBreakpointValue({ base: "sm", md: "md" })} src="https://bit.ly/dan-abramov"></Avatar> */}
+              <Avatar size="md" src="https://bit.ly/dan-abramov"></Avatar>
             </Link>
           </Flex>
         )}
