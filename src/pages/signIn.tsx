@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react"
-import Link from 'next/link'
+import Link from "next/link"
 import { IconButton } from "@chakra-ui/button"
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons"
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/input"
@@ -12,7 +12,7 @@ const SignIn = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
-  const { signIn } = useSignIn();
+  const { signIn } = useSignIn()
 
   const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)
   const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)
@@ -20,7 +20,7 @@ const SignIn = () => {
   const onClickLogin = () => signIn({ email, password })
 
   return (
-    <Flex>
+    <Flex alignItems="center" justifyContent="center">
       <Box>
         <Heading as="h1" size="lg" textAlign="center">
           ログイン
@@ -49,8 +49,8 @@ const SignIn = () => {
           <PrimaryButton disabled={email === "" || password === ""} onClick={onClickLogin}>
             ログイン
           </PrimaryButton>
-          <Link href='signUp/selectUniv'>ユーザー登録されていない方はこちら</Link>
-          <Link href='/resetPassword'>パスワードを忘れた方はこちら</Link>
+          <Link href="signUp/selectUniv">ユーザー登録されていない方はこちら</Link>
+          <Link href="/resetPassword">パスワードを忘れた方はこちら</Link>
         </Stack>
       </Box>
     </Flex>

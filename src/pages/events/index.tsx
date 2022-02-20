@@ -6,7 +6,7 @@ import { Box, Flex } from "@chakra-ui/layout"
 import { IconButton } from "@chakra-ui/react"
 import { AddIcon } from "@chakra-ui/icons"
 import dayjs from "dayjs"
-import { firestore } from "../../libs/firebase"
+import { firestore } from "../../lib/firebase"
 import { collection, getDocs, query, orderBy } from "firebase/firestore"
 import { useRouter } from "next/router"
 
@@ -53,7 +53,7 @@ const Events: NextPage<Props> = (props) => {
             borderRadius="full"
             bottom={6}
             zIndex={100}
-            right={{ base: "6", md: "33%", lg: "25%" }}
+            right={{ base: "4", lg: "8" }}
           ></IconButton>
 
           <Flex flexWrap="wrap" justifyContent="justify-between" w="100%">
@@ -61,7 +61,7 @@ const Events: NextPage<Props> = (props) => {
               return <EventCard key={index} {...event} />
             })}
             {props.events.map((event, index) => {
-              // return <EventCard finished key={index} {...event} />;
+              return <EventCard finished key={index} {...event} />
             })}
           </Flex>
         </Box>

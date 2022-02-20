@@ -1,13 +1,14 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import { EventCard } from "../../components/Organisms/EventCard";
-import { EventSort } from "../../components/Organisms/EventSort";
-import { Box, Flex } from "@chakra-ui/layout";
-import { Button } from "@chakra-ui/react";
-import dayjs from "dayjs";
-import { firestore } from "../../libs/firebase";
-import { collection, getDocs, query, orderBy } from "firebase/firestore";
-import { useRouter } from "next/router";
+import type { NextPage } from "next"
+import { useState } from "react"
+import Head from "next/head"
+import { EventCard } from "../../components/Organisms/EventCard"
+import { EventSort } from "../../components/Organisms/EventSort"
+import { Box, Flex } from "@chakra-ui/layout"
+import { Button } from "@chakra-ui/react"
+import dayjs from "dayjs"
+import { firestore } from "../../lib/firebase"
+import { collection, getDocs, query, orderBy } from "firebase/firestore"
+import { useRouter } from "next/router"
 import {
   FormControl,
   FormLabel,
@@ -17,46 +18,57 @@ import {
   Textarea,
   VStack,
   StackDivider,
-} from "@chakra-ui/react";
-import { Divider } from "@chakra-ui/react";
+} from "@chakra-ui/react"
+import { Divider } from "@chakra-ui/react"
 
 type Props = {
-  tags: string[];
+  tags: string[]
   events: [
     {
-      type: string;
-      host: string;
-      image: string;
-      title: string;
-      cliped: boolean;
-      finished?: boolean;
+      type: string
+      host: string
+      image: string
+      title: string
+      cliped: boolean
+      finished?: boolean
       period?: {
-        start: string;
-        finish: string;
-      };
+        start: string
+        finish: string
+      }
     }
-  ];
-};
+  ]
+}
 
-type Events = {
-  type: string;
-  host: string;
-  image: string;
-  title: string;
-  cliped: boolean;
-  finished?: boolean;
-  period?: {
-    start: string;
-    finish: string;
-  };
-};
+interface Events {
+  type: String
+  title: String
+  image: String
+  explain: String
+  host: String
+  capacity: String
+  relatedLinks: String
+  entryCost: Number
+  period: {
+    start: String
+    finish: String
+  }
+}
 
 const Post: NextPage = () => {
-  const router = useRouter();
-  const pushToEventPost = () => {
-    router.push("event/post");
-  };
-  // const [EvetsFormData, setEventsFormData] = useSate<Events>({type: "", host: "", image: "", title: });
+  const [evetsFormObject, setEventsFormObject] = useState<Events>({
+    type: "",
+    title: "",
+    image: "",
+    explain: "",
+    host: "",
+    capacity: "",
+    relatedLinks: "",
+    entryCost: 0,
+    period: {
+      start: "",
+      finish: "",
+    },
+  })
 
   return (
     <>
@@ -71,25 +83,25 @@ const Post: NextPage = () => {
           spacing={4}
           align="stretch"
         >
-          <FormControl id="text" isRequired>
+          <FormControl
+            id="text"
+            isRequired
+            onChange={(e: any) => {
+              console.log(e.target.value)
+            }}
+          >
             <FormLabel>イベントのタイプ</FormLabel>
             <FormHelperText>イベントのタイプを入力してください</FormHelperText>
             <Input type="text" placeholder="例：雑談会" />
           </FormControl>
           <FormControl id="text" isRequired>
             <FormLabel>イベントのタイトル</FormLabel>
-            <FormHelperText>
-              イベントのタイトルを入力してください
-            </FormHelperText>
+            <FormHelperText>イベントのタイトルを入力してください</FormHelperText>
             <Input type="text" placeholder="例：Unipp オンライン雑談会2021" />
           </FormControl>
           <FormControl id="file" isRequired>
             <FormLabel>画像</FormLabel>
-            <Input
-              type="file"
-              display="none"
-              placeholder="例：Unipp オンライン雑談会2021"
-            />
+            <Input type="file" display="none" placeholder="例：Unipp オンライン雑談会2021" />
             <Button>画像を選択してください</Button>
           </FormControl>
           <FormControl id="text" isRequired>
@@ -99,9 +111,7 @@ const Post: NextPage = () => {
           <FormControl id="text">
             <FormLabel>主催者</FormLabel>
             <Input type="text" placeholder="山田太郎(user.nameにする予定)" />
-            <FormHelperText>
-              変更しないようでしたら、あなたの名前が主催者として掲載されます。
-            </FormHelperText>
+            <FormHelperText>変更しないようでしたら、あなたの名前が主催者として掲載されます。</FormHelperText>
           </FormControl>
           <FormControl id="period">
             <FormLabel>開始期間</FormLabel>
@@ -126,9 +136,7 @@ const Post: NextPage = () => {
           <FormControl id="url">
             <FormLabel>関連リンク</FormLabel>
             <Input type="url" />
-            <FormHelperText>
-              詳細な情報が掲載されているリンク等を記入してください
-            </FormHelperText>
+            <FormHelperText>詳細な情報が掲載されているリンク等を記入してください</FormHelperText>
           </FormControl>
           <FormControl id="number">
             <FormLabel>参加費(円)</FormLabel>
@@ -139,8 +147,8 @@ const Post: NextPage = () => {
         <Button></Button>
       </main>
     </>
-  );
-};
+  )
+}
 
 // const q= query(collection(firestore, "events"));
 // const EventsSnapshot = await getDocs(q);
@@ -148,7 +156,4 @@ const Post: NextPage = () => {
 //   console.log(doc.data())
 // })
 
-export default Post;
-function useSate(arg0: {}): [any, any] {
-  throw new Error("Function not implemented.");
-}
+export default Post
