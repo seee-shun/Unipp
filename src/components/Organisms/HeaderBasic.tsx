@@ -9,7 +9,6 @@ import { useRouter } from "next/router"
 
 export const HeaderBasic: React.FC = (props) => {
   const router = useRouter()
-  console.log(router.pathname)
   return (
     <>
       <Base>
