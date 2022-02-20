@@ -1,9 +1,9 @@
-import type { AppProps } from "next/app";
-import { ChakraProvider } from "@chakra-ui/react";
-import { Basic } from "../components/Layouts/Basic";
-import type { ReactElement, ReactNode } from "react";
-import type { NextPage } from "next";
-import { RecoilRoot } from 'recoil'
+import type { AppProps } from "next/app"
+import { ChakraProvider } from "@chakra-ui/react"
+import { Basic } from "../components/Layouts/Basic"
+import type { ReactElement, ReactNode } from "react"
+import type { NextPage } from "next"
+import { RecoilRoot } from "recoil"
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
