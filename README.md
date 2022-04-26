@@ -1,4 +1,4 @@
-# docker-next
+# Unipp
 
 ### ローカル環境
 - docker 20.10.1
@@ -11,19 +11,8 @@
 ### サービスの構築
 ```
 $ docker-compose build
+$ docker-compose run --rm next yarn install
 ```
-### Nextをインストールする場合のコマンド(TypeScript化するオプション付き)
-```
-docker-compose run --rm next yarn create next-app . --typescript
-```
-
-### Reactをインストールする場合のコマンド(TypeScript化するオプション付き)
-```
-docker-compose run --rm next npx create-react-app . --template typescript
-```
-
-#### Rreactにする場合の注意点
-docker-compose.ymlの10行目を```yarn start```に修正が必要 
 
 ### コンテナの作成と立ち上げ
 ```
