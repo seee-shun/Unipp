@@ -3,7 +3,7 @@ services:
   next:
     build: ./docker/next
     ports:
-      - 9001:3000
+      - 3000:3000
     volumes:
       - ./src:/workspace
     working_dir: /workspace
