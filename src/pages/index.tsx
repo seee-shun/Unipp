@@ -13,7 +13,6 @@ import {
   Text,
   useBreakpointValue,
   Container,
-  Link,
   useColorModeValue,
   SimpleGrid,
   Center,
@@ -98,12 +97,12 @@ const Home: NextPage = () => {
                   color={"white"}
                   _hover={{ bg: "whiteAlpha.600" }}
                   as="a"
-                  href="/events"
+                  href="/signIn"// あとで変更が必要
                   size="lg"
                   w={{ base: "180px", lg: "230px" }}
                   h="50px"
                 >
-                  今すぐ使ってみる
+                  はじめる
                 </Button>
               </Stack>
             </Stack>

@@ -15,8 +15,43 @@ import {
     AccordionButton,
     AccordionPanel,
     AccordionIcon,
-    GridItem,
+    Text,
   } from '@chakra-ui/react'
+import Data from "../../datas/university.json"
+
+const hokkaido: string[] = [];
+const tohoku: string [] = [];
+const kanto: string [] = [];
+const hokuriku: string [] = [];
+const tokai: string [] = [];
+const kinki: string [] = [];
+const tyugoku: string [] = [];
+const sikoku: string [] = [];
+const kyusyu: string [] = [];
+
+Data.filter((univ) => {
+  switch(univ.area) {
+    case '北海道':
+    return(hokkaido.push(univ.name));
+    case '東北':
+    return(tohoku.push(univ.name));
+    case '関東甲信':
+    return(kanto.push(univ.name));
+    case '北陸':
+    return(hokuriku.push(univ.name));
+    case '東海':
+    return(tokai.push(univ.name));
+    case '近畿':
+    return(kinki.push(univ.name));
+    case '中国':
+    return(tyugoku.push(univ.name));
+    case '四国':
+    return(sikoku.push(univ.name));
+    case '九州':
+    return(kyusyu.push(univ.name));
+  }
+});
+
 
   type Props = {
   };
@@ -48,8 +83,8 @@ export const UniversityListModal: React.FC<Props> = (props) => {
                 <ModalCloseButton />
                 <ModalBody>
                     <Accordion>                    
-                            {accordions.map((item) => (
-                                <AccordionItem key={item.area}>
+                            {accordions.map((item, index) => (
+                                <AccordionItem key={index}>
                                     <h2>
                                         <AccordionButton>
                                             <Box flex='1' textAlign='left'>
@@ -59,7 +94,9 @@ export const UniversityListModal: React.FC<Props> = (props) => {
                                         </AccordionButton>
                                     </h2>
                                     <AccordionPanel pb={4}>
-                                    {item.university}
+                                      <Text space={4}>
+                                    {`${item.university},`}
+                                    </Text>
                                     </AccordionPanel>
                                 </AccordionItem>
                             ))}
@@ -76,31 +113,31 @@ export const UniversityListModal: React.FC<Props> = (props) => {
 
   const accordions = [
     { area: '北海道',
-      university: '学外の大学生と幅広いコミュニケーションの機会を提供しています。'
+      university: hokkaido
     },
     { area: '東北',
-      university: '全国を9地域(北海道・東北・関東甲信・北陸・東海・近畿・中国・四国・九州沖縄)に分けているため、簡単に自分の周辺大学の情報を見られます。全国を9地域(北海道・東北・関東甲信・北陸・東海・近畿・中国・四国・九州沖縄)に分けているため、簡単に自分の周辺大学の情報を見られます。全国を9地域(北海道・東北・関東甲信・北陸・東海・近畿・中国・四国・九州沖縄)に分けているため、簡単に自分の周辺大学の情報を見られます。全国を9地域(北海道・東北・関東甲信・北陸・東海・近畿・中国・四国・九州沖縄)に分けているため、簡単に自分の周辺大学の情報を見られます。全国を9地域(北海道・東北・関東甲信・北陸・東海・近畿・中国・四国・九州沖縄)に分けているため、簡単に自分の周辺大学の情報を見られます。全国を9地域(北海道・東北・関東甲信・北陸・東海・近畿・中国・四国・九州沖縄)に分けているため、簡単に自分の周辺大学の情報を見られます。全国を9地域(北海道・東北・関東甲信・北陸・東海・近畿・中国・四国・九州沖縄)に分けているため、簡単に自分の周辺大学の情報を見られます。'
+      university: tohoku
     },
     { area: '関東甲信',
-      university: '自分の大学だけでなく、他大学にも情報を発信することができます。'
+      university: kanto
     },
     { area: '北陸',
-      university: '学外の大学生と幅広いコミュニケーションの機会を提供しています。'
+      university: hokuriku
     },
     { area: '東海',
-      university: '全国を9地域(北海道・東北・関東甲信・北陸・東海・近畿・中国・四国・九州沖縄)に分けているため、簡単に自分の周辺大学の情報を見られます。'
+      university: tokai
     },
     { area: '近畿',
-      university: '自分の大学だけでなく、他大学にも情報を発信することができます。'
+      university: kinki
     },
     { area: '中国',
-      university: '学外の大学生と幅広いコミュニケーションの機会を提供しています。'
+      university: tyugoku
     },
     { area: '四国',
-      university: '全国を9地域(北海道・東北・関東甲信・北陸・東海・近畿・中国・四国・九州)に分けているため、簡単に自分の周辺大学の情報を見られます。'
+      university: sikoku
     },
     { area: '九州沖縄',
-      university: '自分の大学だけでなく、他大学にも情報を発信することができます。'
+      university: kyusyu
     },
   ];
 
