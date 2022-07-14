@@ -15,7 +15,7 @@ const Reuse = () => {
                     <Heading as="h1" size="lg" textAlign="center">
                         Unireuse TimeLine
                     </Heading>
-                    <Link href="reuse/details">詳細ページへa</Link>
+                    <Link href="reuse/details">詳細ページへ</Link>
                     <Link href="reuse/post">投稿ページへ</Link>
                 </Box>
             </Flex>
