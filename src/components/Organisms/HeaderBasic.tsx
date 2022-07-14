@@ -9,6 +9,11 @@ import { useRouter } from "next/router"
 
 export const HeaderBasic: React.FC = (props) => {
   const router = useRouter()
+  const textHover = {
+    cursor: "pointer",
+    color: "red",
+    transition: "color 0.5s ease",
+  }
   return (
     <>
       <Base>
@@ -26,11 +31,11 @@ export const HeaderBasic: React.FC = (props) => {
         )}
         {router.pathname === "/" && (
           <Flex justifyContent="space-between" alignItems="center" gridGap={3}>
-            <Link href="/">
-              <Text color="#4e4e4e">ログイン</Text>
+            <Link href="/signIn">
+              <Text _hover={textHover}>ログイン</Text>
             </Link>
-            <Link href="/">
-              <Text fontWeight={"bold"} color="#4e4e4e">
+            <Link href="/signUp">
+              <Text fontWeight={"bold"} color="#4e4e4e" _hover={textHover}>
                 新規登録
               </Text>
             </Link>
