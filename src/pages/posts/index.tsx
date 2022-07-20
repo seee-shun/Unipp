@@ -5,8 +5,6 @@ import { Box, Flex } from "@chakra-ui/layout"
 import { IconButton } from "@chakra-ui/react"
 import { AddIcon } from "@chakra-ui/icons"
 import dayjs from "dayjs"
-// import { firestore } from "../../lib/firebase"
-// import { collection, getDocs, query } from "firebase/firestore"
 import { useRouter } from "next/router"
 
 type Props = {
@@ -18,13 +16,7 @@ type Props = {
       userName: string //firestoreから引き当て 
       userUnivName: string //引き当て
       content: string
-    //   cliped: boolean
-    //   finished?: boolean
       createdAt: string
-    //   period?: {
-    //     start: string
-    //     finish: string
-    //   }
     }
   ]
 }
@@ -34,7 +26,6 @@ const Posts: NextPage<Props> = (props) => {
   const pushToEventPost = () => {
     router.push("posts/post")
   }
-  // const postTags = ["音楽", "新歓", "ゆる募", "学会", "サークル・イベント", "勉強会", "朝活", "旅行"]
   const start = new Date("February 28, 1995 03:24:00").toJSON()
   const start2 = new Date("February 24, 1995 03:24:00").toJSON()
   const start3 = new Date("February 22, 1995 03:24:00").toJSON()
