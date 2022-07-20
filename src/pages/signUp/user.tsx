@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, ReactElement, ReactNode, useState } from "react"
 import Link from "next/link"
 import { useRecoilValue } from "recoil"
 import { IconButton } from "@chakra-ui/button"
@@ -9,18 +9,24 @@ import { Box, Divider, Flex, Heading, Stack } from "@chakra-ui/layout"
 import { useSignUp } from "../../hooks/useSignUp"
 import { univListState } from "../../store/univListState"
 import { PrimaryButton } from "../../components/atoms/button/PrimaryButton"
+import { NextPage } from "next"
+import { Basic } from "components/Layouts/Basic"
 
-const User = () => {
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
+
+const User: NextPageWithLayout = () => {
   const [userName, setUserName] = useState("")
   const [univEmail, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
   const univList: any = useRecoilValue(univListState)
-  let email = ''
+  let email = ""
   if (univList.address !== undefined) {
     email = `${univEmail}${univList.address}`
   } else {
-    email = univEmail;
+    email = univEmail
   }
 
   const { signUp } = useSignUp()
@@ -29,7 +35,7 @@ const User = () => {
   const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)
   const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)
   const handleClick = () => setShowPassword(!showPassword)
-  const onClickSignUp = () => signUp({ email, password })
+  const onClickSignUp = () => signUp({ email, password, userName, univList })
 
   return (
     <Flex>
@@ -67,11 +73,15 @@ const User = () => {
           <PrimaryButton disabled={userName === "" || email === "" || password === ""} onClick={onClickSignUp}>
             新規作成
           </PrimaryButton>
-          <Link href='/signUp'>大学メールが違う場合はこちら</Link>
+          <Link href="/signUp">大学メールが違う場合はこちら</Link>
         </Stack>
       </Box>
     </Flex>
   )
+}
+
+User.getLayout = (page: ReactElement) => {
+  return <Basic showIcon={false}>{page}</Basic>
 }
 
 export default User
