@@ -1,3 +1,5 @@
+import { NextPage } from "next"
+import type { ReactElement, ReactNode } from "react"
 import { ChangeEvent, memo, useState, VFC } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
@@ -12,12 +14,17 @@ import Data from "../../datas/university.json"
 import { Univ } from "../../types/univ"
 import { univListState } from "../../store/univListState"
 import { PrimaryButton } from "../../components/atoms/button/PrimaryButton"
+import { Basic } from "@/components/Layouts/Basic"
 
 type Props = {
   univ: Univ | null
 }
 
-const SelectUniv: VFC<Props> = memo(() => {
+type NextPageWithLayout = NextPage<Props> & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
+
+const SelectUniv: NextPageWithLayout = memo(() => {
   const router = useRouter()
   const [searchKeyword, setSearchKeyword] = useState("")
   const [selectedUniv, setSelectedUniv] = useState({})
@@ -60,7 +67,9 @@ const SelectUniv: VFC<Props> = memo(() => {
               </ListItem>
             ))}
           </List>
-          <PrimaryButton disabled={!Object.keys(selectedUniv).length} onClick={onClickUnivRegister}>つぎへ</PrimaryButton>
+          <PrimaryButton disabled={!Object.keys(selectedUniv).length} onClick={onClickUnivRegister}>
+            つぎへ
+          </PrimaryButton>
         </Stack>
         <Stack pt={6}>
           <Link href="/signIn">ログインの方はこちら</Link>
@@ -69,5 +78,9 @@ const SelectUniv: VFC<Props> = memo(() => {
     </Flex>
   )
 })
+
+SelectUniv.getLayout = (page: ReactElement) => {
+  return <Basic showIcon={false}>{page}</Basic>
+}
 
 export default SelectUniv

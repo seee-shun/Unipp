@@ -1,5 +1,5 @@
 import type { NextPage } from "next"
-import { ReactElement } from "react"
+import { ReactElement, ReactNode } from "react"
 import Head from "next/head"
 import Image from "next/image"
 import { UniversityListModal } from "../components/Organisms/UniversityListModal"
@@ -22,7 +22,12 @@ import {
   HStack,
 } from "@chakra-ui/react"
 import { CheckIcon } from "@chakra-ui/icons"
+import { Basic } from "components/Layouts/Basic"
 //import { FcAssistant, FcDonate, FcInTransit } from "react-icons/fc";
+
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
 
 const IMAGE = "/iphone.png"
 
@@ -59,7 +64,7 @@ const Feature = ({ title, text }: FeatureProps) => {
   )
 }
 
-const Home: NextPage = () => {
+const Home: NextPageWithLayout = () => {
   return (
     <>
       <Head>
@@ -97,7 +102,7 @@ const Home: NextPage = () => {
                   color={"white"}
                   _hover={{ bg: "whiteAlpha.600" }}
                   as="a"
-                  href="/signIn"// あとで変更が必要
+                  href="/signUp/selectUniv" // あとで変更が必要
                   size="lg"
                   w={{ base: "180px", lg: "230px" }}
                   h="50px"
@@ -391,5 +396,9 @@ const usages = [
   { title: "Step2", explanation: "イベント情報を探してみよう", image: "/sumple3.png" },
   { title: "Step3", explanation: "イベントに参加してみよう", image: "/sumple2.png" },
 ]
+
+Home.getLayout = (page: ReactElement) => {
+  return <Basic showIcon={false}>{page}</Basic>
+}
 
 export default Home
