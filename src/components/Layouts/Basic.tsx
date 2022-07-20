@@ -3,13 +3,17 @@ import { Container } from "@chakra-ui/layout"
 import { HeaderBasic as Header } from "../Organisms/HeaderBasic"
 import { useRouter } from "next/router"
 
-export const Basic: React.FC = ({ children }) => {
+type Props = {
+  showIcon?: boolean
+}
+
+export const Basic: React.FC<Props> = ({ children, showIcon = true }) => {
   const router = useRouter()
   let container = "container"
   container = router.pathname === "/" ? "container" : "container.lg"
   return (
     <>
-      <Header />
+      <Header showIcon={showIcon} />
       <Container as="main" mt="0" p="0" maxW={{ lg: container }}>
         {children}
       </Container>
