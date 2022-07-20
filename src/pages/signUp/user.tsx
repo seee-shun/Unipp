@@ -35,7 +35,7 @@ const User: NextPageWithLayout = () => {
   const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)
   const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)
   const handleClick = () => setShowPassword(!showPassword)
-  const onClickSignUp = () => signUp({ email, password, userName, univList })
+  const onClickSignUp = () => signUp({ email, password, userName })
 
   return (
     <Flex>
