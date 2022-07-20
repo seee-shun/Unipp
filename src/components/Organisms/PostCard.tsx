@@ -1,12 +1,8 @@
 import React from "react"
-import Image from "next/image"
-import styled from "@emotion/styled"
-import { ArrowForwardIcon } from "@chakra-ui/icons"
 import { useRouter } from "next/router"
-import { EventTag } from "../Molecules/EventTag"
-import { EventClipButton } from "../Molecules/EventClipButton"
 import { Box, Divider, Flex, Spacer, Text, VStack } from "@chakra-ui/layout"
 import { HStack } from "@chakra-ui/react"
+import { PostTags } from "../Molecules/PostTags"
 
 type Props = {
   userId: string
@@ -14,14 +10,8 @@ type Props = {
   userUnivName: string
   content: string
   createdAt: any
+  tags: string[]
 }
-
-// const PostCardImage = styled.div`
-//   .event-image {
-//     border-radius: 10px;
-//     filter: brightness(0.8);
-//   }
-// `
 
 export const PostCard: React.FC<Props> = (props) => {
   const router = useRouter()
@@ -56,22 +46,32 @@ export const PostCard: React.FC<Props> = (props) => {
               </Box>
               <Text>
               {props.createdAt}
-              {props.userName}名前
-              {props.userUnivName}大学名
+              {props.userName}
+              {props.userUnivName}
               </Text>
               </HStack>
               <Text>
                 {props.content}
               </Text>
             </VStack>
-            {/* <Box>
-              ここに内容とかが入る
-            </Box> */}
             <Divider orientation="vertical"/>
             <Box width="50%">
-              # ここに
-              # タグが
-              {/* tags - ここにタグがVStackされるよ */}
+                {/* 時間があればちゃんと切り分ける */}
+                {/* <PostTags tags={props.tags}/> */}
+              {props.tags.map((tag, index) => 
+                <Box 
+                  key={tag} 
+                  borderWidth="2px" 
+                  borderColor="#FFD400" 
+                  borderRadius={8} 
+                  px={4}
+                  mb={2}>
+                  <script>
+                    {index +1} 
+                  </script>
+                  <Text color="#FFD400" fontWeight="bold">{tag}</Text>  
+                </Box> 
+              )}
             </Box>
           </HStack>
         </Box>

@@ -13,6 +13,7 @@ type Props = {
   postTags: string[]
   events: [
     {
+      tags: string[]
       userId: string
       userName: string //firestoreから引き当て 
       userUnivName: string //引き当て
@@ -28,7 +29,7 @@ type Props = {
   ]
 }
 
-const Events: NextPage<Props> = (props) => {
+const Posts: NextPage<Props> = (props) => {
   const router = useRouter()
   const pushToEventPost = () => {
     router.push("posts/post")
@@ -43,6 +44,7 @@ const Events: NextPage<Props> = (props) => {
   const createdTime = new Date("March 6, 1995 03:24:00").toJSON()
   const posts = [
     {
+      tags: ["#サークル" , "#日常"],
       userId: "thisIsUserId",
       userName: "表 梨花子",
       userUnivName: "静岡大学",
@@ -50,67 +52,13 @@ const Events: NextPage<Props> = (props) => {
       createdAt: dayjs(createdTime).format("YYYY/MM/DD HH:ss")
     },
     {
+      tags: ["#サークル" , "#課外活動"],
       userId: "thisIsUserId",
       userName: "表 梨花子",
       userUnivName: "静岡大学",
       content: "これは投稿のコンテンツテキストでーす、ここに投稿内容（本文）が表示されるよ、本当はfirestoreからとってくるんだけど、、、ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ",
       createdAt: dayjs(createdTime).format("YYYY/MM/DD HH:ss")
     },
-    // {
-    //   type: "新歓",
-    //   host: "おれ",
-    //   image: "https://source.unsplash.com/user/erondu/1800x1500",
-    //   title: "テスト",
-    //   cliped: false,
-    //   period: {
-    //     start: dayjs(start).format("MM月DD日"),
-    //     finish: dayjs(finish).format("MM月DD日"),
-    //   },
-    // },
-    // {
-    //   type: "新歓",
-    //   host: "未来研究所",
-    //   image: "https://source.unsplash.com/user/erondu/1800x1510",
-    //   title: "奇跡的ハッカソン",
-    //   cliped: false,
-    //   period: {
-    //     start: dayjs(start2).format("MM月DD日"),
-    //     finish: dayjs(finish2).format("MM月DD日"),
-    //   },
-    // },
-    // {
-    //   type: "新歓",
-    //   host: "Y-lab",
-    //   image: "https://source.unsplash.com/user/erondu/1800x1490",
-    //   title: "テスト",
-    //   cliped: true,
-    //   period: {
-    //     start: dayjs().format("MM月DD日"),
-    //     finish: dayjs(finish3).format("MM月DD日"),
-    //   },
-    // },
-    // {
-    //   type: "新歓",
-    //   host: "Ayaka",
-    //   image: "https://source.unsplash.com/user/erondu/1800x1600",
-    //   title: "テスト",
-    //   cliped: false,
-    //   period: {
-    //     start: dayjs().format("MM月DD日"),
-    //     finish: dayjs(finish2).format("MM月DD日"),
-    //   },
-    // },
-    // {
-    //   type: "新歓",
-    //   host: "sayNo",
-    //   image: "https://source.unsplash.com/user/erondu/1700x1504",
-    //   title: "テスト",
-    //   cliped: true,
-    //   period: {
-    //     start: dayjs().format("MM月DD日"),
-    //     finish: dayjs(finish3).format("MM月DD日"),
-    //   },
-    // },
   ]
 
   return (
@@ -145,4 +93,4 @@ const Events: NextPage<Props> = (props) => {
   )
 }
 
-export default Events
+export default Posts
