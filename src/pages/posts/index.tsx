@@ -1,25 +1,148 @@
 import type { NextPage } from "next"
 import Head from "next/head"
+import { PostCard } from "../../components/Organisms/PostCard"
+import { Box, Flex } from "@chakra-ui/layout"
+import { IconButton } from "@chakra-ui/react"
+import { AddIcon } from "@chakra-ui/icons"
+import dayjs from "dayjs"
+// import { firestore } from "../../lib/firebase"
+// import { collection, getDocs, query } from "firebase/firestore"
 import { useRouter } from "next/router"
-import React from "react"
 
 type Props = {
-    tags: string[]
-    posts: [{}]
-}
-
-
-const Posts: NextPage<Props> = (props) => {
-    const router = useRouter()
-    const pushToPost = () => {
-        router.push("posts/post")
+  postTags: string[]
+  events: [
+    {
+      userId: string
+      userName: string //firestoreから引き当て 
+      userUnivName: string //引き当て
+      content: string
+    //   cliped: boolean
+    //   finished?: boolean
+      createdAt: string
+    //   period?: {
+    //     start: string
+    //     finish: string
+    //   }
     }
-
-    return (
-        <>
-        <Head>
-            
-        </Head>
-        </>
-    )
+  ]
 }
+
+const Events: NextPage<Props> = (props) => {
+  const router = useRouter()
+  const pushToEventPost = () => {
+    router.push("posts/post")
+  }
+  // const postTags = ["音楽", "新歓", "ゆる募", "学会", "サークル・イベント", "勉強会", "朝活", "旅行"]
+  const start = new Date("February 28, 1995 03:24:00").toJSON()
+  const start2 = new Date("February 24, 1995 03:24:00").toJSON()
+  const start3 = new Date("February 22, 1995 03:24:00").toJSON()
+  const finish = new Date("March 4, 1995 03:24:00").toJSON()
+  const finish2 = new Date("March 12, 1995 03:24:00").toJSON()
+  const finish3 = new Date("March 6, 1995 03:24:00").toJSON()
+  const createdTime = new Date("March 6, 1995 03:24:00").toJSON()
+  const posts = [
+    {
+      userId: "thisIsUserId",
+      userName: "表 梨花子",
+      userUnivName: "静岡大学",
+      content: "これは投稿のコンテンツテキストでーす、ここに投稿内容（本文）が表示されるよ、本当はfirestoreからとってくるんだけど、、、ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ",
+      createdAt: dayjs(createdTime).format("YYYY/MM/DD HH:ss")
+    },
+    {
+      userId: "thisIsUserId",
+      userName: "表 梨花子",
+      userUnivName: "静岡大学",
+      content: "これは投稿のコンテンツテキストでーす、ここに投稿内容（本文）が表示されるよ、本当はfirestoreからとってくるんだけど、、、ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ",
+      createdAt: dayjs(createdTime).format("YYYY/MM/DD HH:ss")
+    },
+    // {
+    //   type: "新歓",
+    //   host: "おれ",
+    //   image: "https://source.unsplash.com/user/erondu/1800x1500",
+    //   title: "テスト",
+    //   cliped: false,
+    //   period: {
+    //     start: dayjs(start).format("MM月DD日"),
+    //     finish: dayjs(finish).format("MM月DD日"),
+    //   },
+    // },
+    // {
+    //   type: "新歓",
+    //   host: "未来研究所",
+    //   image: "https://source.unsplash.com/user/erondu/1800x1510",
+    //   title: "奇跡的ハッカソン",
+    //   cliped: false,
+    //   period: {
+    //     start: dayjs(start2).format("MM月DD日"),
+    //     finish: dayjs(finish2).format("MM月DD日"),
+    //   },
+    // },
+    // {
+    //   type: "新歓",
+    //   host: "Y-lab",
+    //   image: "https://source.unsplash.com/user/erondu/1800x1490",
+    //   title: "テスト",
+    //   cliped: true,
+    //   period: {
+    //     start: dayjs().format("MM月DD日"),
+    //     finish: dayjs(finish3).format("MM月DD日"),
+    //   },
+    // },
+    // {
+    //   type: "新歓",
+    //   host: "Ayaka",
+    //   image: "https://source.unsplash.com/user/erondu/1800x1600",
+    //   title: "テスト",
+    //   cliped: false,
+    //   period: {
+    //     start: dayjs().format("MM月DD日"),
+    //     finish: dayjs(finish2).format("MM月DD日"),
+    //   },
+    // },
+    // {
+    //   type: "新歓",
+    //   host: "sayNo",
+    //   image: "https://source.unsplash.com/user/erondu/1700x1504",
+    //   title: "テスト",
+    //   cliped: true,
+    //   period: {
+    //     start: dayjs().format("MM月DD日"),
+    //     finish: dayjs(finish3).format("MM月DD日"),
+    //   },
+    // },
+  ]
+
+  return (
+    <>
+      <Head>
+        <title>Unipp:Posts</title>
+        <meta name="description" content="Events of Unipp for every student" />
+      </Head>
+      <main>
+        <Box h="calc(100vh - 80px)" overflowY="scroll">
+          <IconButton
+            colorScheme="pink"
+            aria-label="新規投稿"
+            onClick={pushToEventPost}
+            icon={<AddIcon />}
+            size="lg"
+            position="absolute"
+            borderRadius="full"
+            bottom={6}
+            zIndex={100}
+            right={{ base: "4", lg: "8" }}
+          ></IconButton>
+
+          <Flex flexWrap="wrap" justifyContent="justify-between" w="100%">
+            {posts.map((post, index) => {
+              return <PostCard key={index} {...post} />
+            })}
+          </Flex>
+        </Box>
+      </main>
+    </>
+  )
+}
+
+export default Events
