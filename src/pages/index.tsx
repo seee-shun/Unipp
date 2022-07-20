@@ -102,7 +102,7 @@ const Home: NextPageWithLayout = () => {
                   color={"white"}
                   _hover={{ bg: "whiteAlpha.600" }}
                   as="a"
-                  href="/signIn" // あとで変更が必要
+                  href="/signUp/selectUniv" // あとで変更が必要
                   size="lg"
                   w={{ base: "180px", lg: "230px" }}
                   h="50px"
