@@ -87,7 +87,7 @@ export const CreatePostModal: React.FC<Props> = (props) => {
               >
               <ModalOverlay />
               <ModalContent p={8}>
-                <ModalHeader>新規投稿を作成</ModalHeader>
+                <ModalHeader>New</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
                   <Textarea 
