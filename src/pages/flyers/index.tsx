@@ -1,31 +1,56 @@
 import type { NextPage } from "next"
-import { Box, Flex } from "@chakra-ui/react"
+import { Box, Flex, Image, useId } from "@chakra-ui/react"
 import dayjs from "dayjs"
-import { collection, getDocs } from "firebase/firestore"
+import { collection, getDocs, orderBy, query } from "firebase/firestore"
 import { firestore } from "../../lib/firebase"
+import { useRouter } from "next/router"
+import { useSetRecoilState } from "recoil"
+import { selectedFlyer } from "store/selectedFlyer"
+
+type Flyer = {
+  id: string
+  title: string
+  poster: string
+  imageURL: string
+  explain: string
+  createdAt: string
+  target: string
+  contact: string
+}
 
 type Props = {
-  flyers: [
-    {
-      id: string
-      title: string
-      poster: string
-      imageURL: string
-      explain: string
-      createdAt: string
-      target: string
-      contact: string
-    }
-  ]
+  flyers: Flyer[]
 }
 
 const Flyers: NextPage<Props> = ({ flyers }) => {
+  const router = useRouter()
+  const setSelectedFlyer = useSetRecoilState(selectedFlyer)
+  const clickHandler = () => {
+    //サブこれ書く
+
+    router.push("/flyers/details")
+  }
   return (
     <>
-      <Box h="calc(100vh - 80px)" overflowY="scroll">
-        <Flex mt={"80px"} flexWrap="wrap" justifyContent="justify-between" w="100%">
-          <p>{flyers[0].explain}</p>
-        </Flex>
+      <Box h="calc(100vh - 80px)">
+        <Box padding={4} w="100%" sx={{ columnCount: [2, 4, 4, 4], columnGap: "8px" }}>
+          {flyers.map((flyer) => (
+            <>
+              <Box mb={2}>
+                <Image
+                  key={flyer.id}
+                  w="100%"
+                  borderRadius="xl"
+                  d="inline-block"
+                  src={flyer.imageURL}
+                  alt="Alt"
+                  onClick={clickHandler}
+                />
+                {flyer.title}
+              </Box>
+            </>
+          ))}
+        </Box>
       </Box>
     </>
   )
@@ -33,17 +58,17 @@ const Flyers: NextPage<Props> = ({ flyers }) => {
 
 export const getServerSideProps = async () => {
   let flyers: any = []
-  const querySnapShot = await getDocs(collection(firestore, "flyers"))
+  const flyerQuery = query(collection(firestore, "flyers"), orderBy("createdAt", "desc"))
+  const querySnapShot = await getDocs(flyerQuery)
+
   querySnapShot.forEach((doc) => {
     const flyer = {
       id: doc.id,
-      title: doc.data().name,
-      poster: doc.data().poster,
-      imageURL: doc.data().imageURL,
-      explain: doc.data().explain,
-      createdAt: dayjs(doc.data().createdAt.toDate()).format("YYYY-MM-DD HH:mm:ss"),
+      title: doc.data().title,
       target: doc.data().target,
-      contact: doc.data().contact,
+      imageURL: doc.data().imageURL,
+      createdAt: dayjs(doc.data().createdAt.toDate()).format("YYYY-MM-DD HH:mm:ss"),
+      views: doc.data().views,
     }
     flyers = [...flyers, flyer]
   })
