@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, ReactElement, ReactNode, useState } from "react"
 import Link from "next/link"
 import { IconButton } from "@chakra-ui/button"
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons"
@@ -7,6 +7,12 @@ import { Box, Divider, Flex, Heading, Stack } from "@chakra-ui/layout"
 
 import { PrimaryButton } from "../components/atoms/button/PrimaryButton"
 import { useSignIn } from "../hooks/useSignIn"
+import { NextPage } from "next"
+import { Basic } from "components/Layouts/Basic"
+
+type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
 
 const SignIn = () => {
   const [email, setEmail] = useState("")
@@ -55,6 +61,10 @@ const SignIn = () => {
       </Box>
     </Flex>
   )
+}
+
+SignIn.getLayout = (page: ReactElement) => {
+  return <Basic showIcon={false}>{page}</Basic>
 }
 
 export default SignIn

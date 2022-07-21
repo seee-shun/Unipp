@@ -6,9 +6,21 @@ import { Avatar, color, Text } from "@chakra-ui/react"
 import { Spacer, Flex } from "@chakra-ui/layout"
 // import { useBreakpointValue } from "@chakra-ui/media-query"
 import { useRouter } from "next/router"
+import { userState } from "store/userState"
+import { useRecoilValue } from "recoil"
 
-export const HeaderBasic: React.FC = (props) => {
+type Props = {
+  showIcon?: boolean
+}
+
+export const HeaderBasic: React.FC<Props> = ({ showIcon = true }) => {
+  const user = useRecoilValue(userState)
   const router = useRouter()
+  const textHover = {
+    cursor: "pointer",
+    color: "red",
+    transition: "color 0.5s ease",
+  }
   return (
     <>
       <Base>
@@ -16,21 +28,20 @@ export const HeaderBasic: React.FC = (props) => {
           <AppLogo />
         </Flex>
         <Spacer />
-        {router.pathname !== "/" && (
+        {showIcon && (
           <Flex alignItems="center">
             <Link href="/mypage">
-              {/* <Avatar size={useBreakpointValue({ base: "sm", md: "md" })} src="https://bit.ly/dan-abramov"></Avatar> */}
-              <Avatar size="md" src="https://bit.ly/dan-abramov"></Avatar>
+              <Avatar size="md" src={user.iconURL}></Avatar>
             </Link>
           </Flex>
         )}
         {router.pathname === "/" && (
           <Flex justifyContent="space-between" alignItems="center" gridGap={3}>
-            <Link href="/">
-              <Text color="#4e4e4e">ログイン</Text>
+            <Link href="/signIn">
+              <Text _hover={textHover}>ログイン</Text>
             </Link>
-            <Link href="/">
-              <Text fontWeight={"bold"} color="#4e4e4e">
+            <Link href="/signUp/selectUniv">
+              <Text fontWeight={"bold"} color="#4e4e4e" _hover={textHover}>
                 新規登録
               </Text>
             </Link>
