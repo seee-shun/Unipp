@@ -1,5 +1,5 @@
-import React from "react";
-import { Flex } from "@chakra-ui/layout";
+import React from "react"
+import { Flex } from "@chakra-ui/layout"
 
 export const HeaderBase: React.FC = (props) => {
   return (
@@ -18,5 +18,5 @@ export const HeaderBase: React.FC = (props) => {
     >
       {props.children}
     </Flex>
-  );
-};
+  )
+}
