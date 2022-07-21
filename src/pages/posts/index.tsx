@@ -6,6 +6,7 @@ import { IconButton } from "@chakra-ui/react"
 import { AddIcon } from "@chakra-ui/icons"
 import dayjs from "dayjs"
 import { useRouter } from "next/router"
+import { CreatePostModal } from "../../components/Organisms/CreatePostModal"
 
 type Props = {
   postTags: string[]
@@ -60,18 +61,7 @@ const Posts: NextPage<Props> = (props) => {
       </Head>
       <main>
         <Box h="calc(100vh - 80px)" overflowY="scroll">
-          <IconButton
-            colorScheme="pink"
-            aria-label="新規投稿"
-            onClick={pushToEventPost}
-            icon={<AddIcon />}
-            size="lg"
-            position="absolute"
-            borderRadius="full"
-            bottom={6}
-            zIndex={100}
-            right={{ base: "4", lg: "8" }}
-          ></IconButton>
+          <CreatePostModal />
 
           <Flex flexWrap="wrap" justifyContent="justify-between" w="100%">
             {posts.map((post, index) => {
