@@ -8,6 +8,8 @@ import { ReactElement, ReactNode, useEffect, useState } from "react"
 import { Avatar } from "@chakra-ui/avatar"
 import { useBreakpointValue } from "@chakra-ui/media-query"
 import { TriangleDownIcon } from "@chakra-ui/icons"
+import { useRecoilValue } from "recoil"
+import { userState } from "store/userState"
 
 type Props = {
   userClipedEvents: [
@@ -56,6 +58,8 @@ const Mypage: NextPageWithLayout = (props) => {
     setCurrentTab(tabMenuId)
   }
 
+  const user = useRecoilValue(userState)
+
   return (
     <>
       <Head>
@@ -80,9 +84,9 @@ const Mypage: NextPageWithLayout = (props) => {
             <Avatar size={useBreakpointValue({ base: "xl" })} src="https://bit.ly/dan-abramov"></Avatar>
             <Box m={2}>
               <Text color="white" fontWeight="bold">
-                名前
+                {user.name}
               </Text>
-              <Text color="white">学校名</Text>
+              <Text color="white">{user.univercity}</Text>
             </Box>
           </Box>
           <Box
