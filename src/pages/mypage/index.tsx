@@ -1,60 +1,64 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import { EventCard } from "../../components/Organisms/EventCard";
-import { Box, Flex, Spacer, Text } from "@chakra-ui/layout";
-import dayjs from "dayjs";
-import { MyPage } from "../../components/Layouts/MyPage";
-import { ReactElement, ReactNode, useEffect, useState } from "react";
-import { Avatar } from "@chakra-ui/avatar";
-import { useBreakpointValue } from "@chakra-ui/media-query";
-import { TriangleDownIcon } from "@chakra-ui/icons";
+import type { NextPage } from "next"
+import Head from "next/head"
+import { EventCard } from "../../components/Organisms/EventCard"
+import { Box, Flex, Spacer, Text } from "@chakra-ui/layout"
+import dayjs from "dayjs"
+import { MyPage } from "../../components/Layouts/MyPage"
+import { ReactElement, ReactNode, useEffect, useState } from "react"
+import { Avatar } from "@chakra-ui/avatar"
+import { useBreakpointValue } from "@chakra-ui/media-query"
+import { TriangleDownIcon } from "@chakra-ui/icons"
+import { useRecoilValue } from "recoil"
+import { userState } from "store/userState"
 
 type Props = {
   userClipedEvents: [
     {
-      type: string;
-      host: string;
-      image: string;
-      title: string;
-      cliped: boolean;
-      finished?: boolean;
+      type: string
+      host: string
+      image: string
+      title: string
+      cliped: boolean
+      finished?: boolean
       period?: {
-        start: string;
-        finish: string;
-      };
+        start: string
+        finish: string
+      }
     }
-  ];
+  ]
   userPostedEvents: [
     {
-      type: string;
-      host: string;
-      image: string;
-      title: string;
-      cliped: boolean;
-      finished?: boolean;
+      type: string
+      host: string
+      image: string
+      title: string
+      cliped: boolean
+      finished?: boolean
       period?: {
-        start: string;
-        finish: string;
-      };
+        start: string
+        finish: string
+      }
     }
-  ];
-};
+  ]
+}
 
 type NextPageWithLayout = NextPage<Props> & {
-  getLayout?: (page: ReactElement) => ReactNode;
-};
+  getLayout?: (page: ReactElement) => ReactNode
+}
 
 const Mypage: NextPageWithLayout = (props) => {
   const tabMenu = [
     { id: "cliped", title: "保存一覧" },
     { id: "posted", title: "投稿一覧" },
-  ];
-  let [currentTab, setCurrentTab] = useState(tabMenu[0].id);
+  ]
+  let [currentTab, setCurrentTab] = useState(tabMenu[0].id)
 
   const tabMenuItemsHandler = (tabMenuId: string): void => {
-    if (tabMenuId === currentTab) return;
-    setCurrentTab(tabMenuId);
-  };
+    if (tabMenuId === currentTab) return
+    setCurrentTab(tabMenuId)
+  }
+
+  const user = useRecoilValue(userState)
 
   return (
     <>
@@ -77,15 +81,12 @@ const Mypage: NextPageWithLayout = (props) => {
             flexDirection="column"
             flex={3}
           >
-            <Avatar
-              size={useBreakpointValue({ base: "xl" })}
-              src="https://bit.ly/dan-abramov"
-            ></Avatar>
+            <Avatar size={useBreakpointValue({ base: "xl" })} src="https://bit.ly/dan-abramov"></Avatar>
             <Box m={2}>
               <Text color="white" fontWeight="bold">
-                山田 太郎
+                {user.name}
               </Text>
-              <Text color="white">静岡大学</Text>
+              <Text color="white">{user.univercity}</Text>
             </Box>
           </Box>
           <Box
@@ -122,27 +123,17 @@ const Mypage: NextPageWithLayout = (props) => {
                       flex={1}
                       justifyContent="center"
                       alignItems="center"
-                      border={
-                        currentTab === el.id ? "2px solid #f2d672" : "unset"
-                      }
+                      border={currentTab === el.id ? "2px solid #f2d672" : "unset"}
                       bgColor={currentTab === el.id ? "white" : "unset"}
                       borderRadius="full"
                       onClick={() => tabMenuItemsHandler(el.id)}
                     >
-                      <TriangleDownIcon
-                        w={4}
-                        h={4}
-                        mr={1}
-                        color={currentTab === el.id ? "#F2D672" : "#4e4e4e"}
-                      />
-                      <Text
-                        mr={2}
-                        fontWeight={currentTab === el.id ? "bold" : "unset"}
-                      >
+                      <TriangleDownIcon w={4} h={4} mr={1} color={currentTab === el.id ? "#F2D672" : "#4e4e4e"} />
+                      <Text mr={2} fontWeight={currentTab === el.id ? "bold" : "unset"}>
                         {el.title}
                       </Text>
                     </Flex>
-                  );
+                  )
                 })}
                 {/* <Text flex={1} textAlign="center">
                   <TriangleDownIcon w={6} h={6} mr={1} color="#4e4e4e" />
@@ -171,13 +162,13 @@ const Mypage: NextPageWithLayout = (props) => {
         </Box>
       </main>
     </>
-  );
-};
+  )
+}
 
 export const getServerSideProps = () => {
   // ここでfirebaseのコードを書く or Recoilのコード
-  const start = new Date("December 17, 1995 03:24:00").toJSON();
-  const finish = new Date("December 17, 1995 03:24:00").toJSON();
+  const start = new Date("December 17, 1995 03:24:00").toJSON()
+  const finish = new Date("December 17, 1995 03:24:00").toJSON()
   const userClipedEvents = [
     {
       type: "新歓",
@@ -278,7 +269,7 @@ export const getServerSideProps = () => {
         finish: dayjs().format("MM/DD"),
       },
     },
-  ];
+  ]
   const userPostedEvents = [
     {
       type: "新歓",
@@ -291,14 +282,14 @@ export const getServerSideProps = () => {
         finish: dayjs().format("MM/DD"),
       },
     },
-  ];
+  ]
   return {
     props: { userClipedEvents, userPostedEvents },
-  };
-};
+  }
+}
 
 Mypage.getLayout = (page: ReactElement) => {
-  return <MyPage>{page}</MyPage>;
-};
+  return <MyPage>{page}</MyPage>
+}
 
-export default Mypage;
+export default Mypage
