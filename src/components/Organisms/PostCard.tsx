@@ -28,7 +28,7 @@ export const PostCard: React.FC<Props> = (props) => {
             mb={4}
             bgColor="white" 
             pt={8} 
-            pb={12}
+            pb={24}
             px={16} 
             borderRadius={32} 
             boxShadow="md"
