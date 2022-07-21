@@ -2,7 +2,7 @@ import { useCallback } from "react"
 import { useRouter } from "next/router"
 import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth"
 import { doc, setDoc, Timestamp } from "firebase/firestore"
-import { auth, firestore } from "../lib/firebase"
+import { auth, firestore } from "@/lib/firebase"
 import { useRecoilValue } from "recoil"
 import { univListState } from "store/univListState"
 
