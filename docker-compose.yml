@@ -6,5 +6,7 @@ services:
       - 3000:3000
     volumes:
       - ./src:/workspace
+    environment:
+      - WATCHPACK_POLLING=true
     working_dir: /workspace
     command: yarn dev
