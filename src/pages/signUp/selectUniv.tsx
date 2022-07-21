@@ -14,7 +14,7 @@ import Data from "../../datas/university.json"
 import { Univ } from "../../types/univ"
 import { univListState } from "../../store/univListState"
 import { PrimaryButton } from "../../components/atoms/button/PrimaryButton"
-import { Basic } from "@/components/Layouts/Basic"
+import { Basic } from "../../components/Layouts/Basic"
 
 type Props = {
   univ: Univ | null

@@ -4,7 +4,7 @@ import { signInWithEmailAndPassword } from "@firebase/auth"
 import { doc, getDoc } from "@firebase/firestore"
 import { auth, firestore } from "../lib/firebase"
 import { useSetRecoilState } from "recoil"
-import { userState } from "@/store/userState"
+import { userState } from "store/userState"
 
 type Props = {
   email: string
