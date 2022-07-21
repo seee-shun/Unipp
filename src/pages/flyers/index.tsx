@@ -1,28 +1,33 @@
 import type { NextPage } from "next"
-import { Box, Flex, Image } from "@chakra-ui/react"
+import { Box, Flex, Image, useId } from "@chakra-ui/react"
 import dayjs from "dayjs"
 import { collection, getDocs, orderBy, query } from "firebase/firestore"
 import { firestore } from "../../lib/firebase"
 import { useRouter } from "next/router"
+import { useSetRecoilState } from "recoil"
+import { selectedFlyer } from "store/selectedFlyer"
+
+type Flyer = {
+  id: string
+  title: string
+  poster: string
+  imageURL: string
+  explain: string
+  createdAt: string
+  target: string
+  contact: string
+}
 
 type Props = {
-  flyers: [
-    {
-      id: string
-      title: string
-      poster: string
-      imageURL: string
-      explain: string
-      createdAt: string
-      target: string
-      contact: string
-    }
-  ]
+  flyers: Flyer[]
 }
 
 const Flyers: NextPage<Props> = ({ flyers }) => {
   const router = useRouter()
+  const setSelectedFlyer = useSetRecoilState(selectedFlyer)
   const clickHandler = () => {
+    //サブこれ書く
+
     router.push("/flyers/details")
   }
   return (

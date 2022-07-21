@@ -23,9 +23,9 @@ export const useSignIn = () => {
         id: uid,
         name: userData.name,
         email: userData.email,
-        univercity: userData.univName,
-        univercity_area: userData.univName,
-        univercity_school_color: userData.univSchoolColor,
+        university: userData.univName,
+        university_area: userData.univName,
+        university_school_color: userData.univSchoolColor,
         iconURL: userData.userIcon,
       })
     } else {
