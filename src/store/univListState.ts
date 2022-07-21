@@ -3,5 +3,10 @@ import { RecoilAtomKeys } from "./RecoilKeys"
 
 export const univListState = atom({
   key: RecoilAtomKeys.UNIV_LIST_STATE,
-  default: {},
+  default: {
+    name: "",
+    address: "",
+    area: "",
+    school_color: "",
+  },
 })
