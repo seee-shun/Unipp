@@ -6,11 +6,11 @@ export const selectedFlyer = atom({
   default: {
     id: "",
     title: "",
-    views: "",
+    views: 0,
     target: "",
     posterId: "",
     imageURL: "",
-    contacts: "",
+    contact: "",
     explain: "",
   },
 })
