@@ -1,5 +1,8 @@
 import type { NextPage } from "next"
 import { Box ,Text, Image, Heading, VStack, Center, Flex, Spacer} from "@chakra-ui/react"
+import { selectedFlyer } from "store/selectedFlyer"
+import { useRecoilValue } from "recoil"
+
 type Props = {
   details: {
     id: string
@@ -16,10 +19,15 @@ type Props = {
   }
 }
 
-const FlyerDetails: NextPage<Props> = ({ details }) => {
+const FlyerDetails: NextPage<Props> = () => {
+  const details = useRecoilValue(selectedFlyer);
+  // ここはfirebaseからUsersの中身のデータを取得する必要があり、エラー回避のため
+  const posterName = "Unipp太郎"
+  const posterIcon = "https://firebasestorage.googleapis.com/v0/b/unipp-develop.appspot.com/o/default_icon%2Fdf_ic_1.jpeg?alt=media&token=8cb1ea1a-1e0a-4005-9c6c-77c63f042d2e"
+  // ここはfirebaseからのデータ取得時にstoreにデータを入れていないことが原因のエラー回避のため
+  const createdAt = "22/7/23 16時24分"
   return (
     <>
-
       <VStack w={"100vw"} align={"stretch"} 
       display='flex' justifyContent='center' alignItems='center'>
 
@@ -30,24 +38,22 @@ const FlyerDetails: NextPage<Props> = ({ details }) => {
       <Flex w={"100%"}>
           <Spacer />
           <Image
-            src={details.posterIcon}
+            src={posterIcon}
             boxSize={"30px"}
             borderRadius={"full"}
             mr={2}
           ></Image>
           <Text>
-            {details.posterName}
+            {posterName}
           </Text>
         </Flex>
-       
         <Flex w={"100%"} pt={4} pb={1}>
           <Heading textAlign={"left"} as='h1' size='md'>{details.title}</Heading>
           <Spacer />
         </Flex>
 
-
         <Box>
-          <Text>{details.poster}</Text>
+          <Text>{details.posterId}</Text>
         </Box>
 
         <Box pt={5} pb={5} pr={2} 
@@ -56,8 +62,6 @@ const FlyerDetails: NextPage<Props> = ({ details }) => {
             <Text>{details.explain}</Text>
           </Center>
         </Box>
-
-
 
         <Box pt={5}>
           <Box pb={1}>
@@ -72,7 +76,6 @@ const FlyerDetails: NextPage<Props> = ({ details }) => {
           </Box>
         </Box>
 
-
         <Box pt={5}>
           <Box pb={1}>
             <Heading as='h2' size='sm'>連絡先</Heading>
@@ -86,46 +89,22 @@ const FlyerDetails: NextPage<Props> = ({ details }) => {
           </Box>
         </Box>
 
-
         <Box  pt={5} pb={10}>
           <Box pb={1}>
           <Heading as='h2' size='sm'>投稿日</Heading>
           </Box>
-
           <Box pt={5} pb={5} pr={2}
           w={"95vw"} backgroundColor={"blackAlpha.100"} borderRadius={"5px"}>
             <Center h='100%'>
-              {details.createdAt}
+              {createdAt}
             </Center>
           </Box>
         </Box>
-
       </Box>
 
       </VStack>
-
     </>
   )
-}
-
-export const getServerSideProps = async () => {
-  const details = {
-    id: "hogehoge",
-    imageURL: "https://firebasestorage.googleapis.com/v0/b/unipp-develop.appspot.com/o/flyer_sample.jpg?alt=media&token=978590da-2ecb-4c99-a70f-debdadc9450d",
-    views: 0,
-    title: "パンプラージュ、春のパンまつり",
-    explain: "パンプラージュ、春のパン祭りを開催します。遊橋研究室(J2326)にて7/25の12:00に開催！",
-    target: "新入生",
-    contact: "hogehoge@hage.com",
-    createdAt: "2022年07月07日 15時00分00秒",
-    posterId: "投稿者",
-    posterName: "unnip太郎",
-    posterIcon: "https://firebasestorage.googleapis.com/v0/b/unipp-develop.appspot.com/o/default_icon%2Fdf_ic_2.jpeg?alt=media&token=c8e8c26a-0191-4149-a3e1-1ed31cebd4bb",
-  }
-
-  return {
-    props: { details },
-  }
 }
 
 export default FlyerDetails

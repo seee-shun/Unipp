@@ -1,7 +1,7 @@
 import type { NextPage } from "next"
 import { Box, Flex, Grid, Image, useId, Text, SimpleGrid, ChakraProps, Spacer, Icon } from "@chakra-ui/react"
 import dayjs from "dayjs"
-import { collection, getDocs, orderBy, query } from "firebase/firestore"
+import { collection, doc, getDoc, getDocs, orderBy, query } from "firebase/firestore"
 import { firestore } from "../../lib/firebase"
 import { useRouter } from "next/router"
 import { useSetRecoilState } from "recoil"
@@ -31,18 +31,27 @@ type Props = {
 const Flyers: NextPage<Props> = ({ flyers }) => {
   const router = useRouter()
   const setSelectedFlyer = useSetRecoilState(selectedFlyer)
-  const clickHandler = (flyer: Flyer) => {
-    //　ここにサブコレからcontactsとexplainを取得するメソッド記述
-    setSelectedFlyer({
-      id: flyer.id,
-      title: flyer.title,
-      views: flyer.views,
-      target: flyer.target,
-      posterId: flyer.poster,
-      imageURL: flyer.imageURL,
-      contact: "",
-      explain: "",
-    })
+  const name = "かじたかひろ"
+  const bloodType = "O"
+
+
+  const clickHandler = async(flyer: Flyer) => {
+    // 　ここにサブコレからcontactsとexplainを取得するメソッド記述
+    const flyerDetailsRef = doc(firestore, 'flyers', flyer.id, 'details', "details");
+    const flyerDetails = await getDoc(flyerDetailsRef)
+
+    if (flyerDetails.exists()) {
+      setSelectedFlyer({
+        id: flyer.id,
+        title: flyer.title,
+        views: flyer.views,
+        target: flyer.target,
+        posterId: flyer.poster,
+        imageURL: flyer.imageURL,
+        contact: flyerDetails.data().contacts,
+        explain: flyerDetails.data().explain,
+      })
+    }
     router.push("/flyers/details")
   }
   const borderStyle: ChakraProps = {
@@ -85,10 +94,27 @@ const Flyers: NextPage<Props> = ({ flyers }) => {
 }
 
 export const getServerSideProps = async () => {
+  // const 定数
+  // let　変数
   let flyers: any = []
-  const flyerQuery = query(collection(firestore, "flyers"), orderBy("createdAt", "desc"))
+  // ここから firebaseから　flyers の取得
+  const flyerPath = collection(firestore, "flyers") 
+  const flyerQuery = query(flyerPath, orderBy("createdAt", "desc"))
+  // 同期処理
+  // const kaji = () => {
+  //   const datahoshi = APItoTushinSHImasu()
+  //   console.log("データゲットだぜ")
+  // }
+
+  // 非同期処理
+  // const kaji = async() => {
+  //   const datahoshi = await APItoTushinSHImasu()
+  //   console.log("データゲットだぜ")
+  // }
+
   const querySnapShot = await getDocs(flyerQuery)
 
+  // const qSS = [{data:1},{data:2},{data:3}]
   querySnapShot.forEach((doc) => {
     const flyer = {
       id: doc.id,
@@ -100,6 +126,7 @@ export const getServerSideProps = async () => {
     }
     flyers = [...flyers, flyer]
   })
+  // ここまで firebaseから　flyers の取得
 
   return { props: { flyers } }
 }
