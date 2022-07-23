@@ -13,7 +13,7 @@ const JobPage: NextPage = () => {
           <meta name="description" content="Events of Unipp for every student" />
         </Head>
         <h1>サイト</h1>
-     
+
         <p>ここでは有名な就活サイトを紹介します。</p>
         <ul>
           <li>
@@ -22,8 +22,8 @@ const JobPage: NextPage = () => {
           </li>
           <li>
             <h2>その２　あさがくナビ</h2>
-            <p>なんかスカウト型の就活サイトらしいです。最近株価が伸びてるらしいのでなんかいい事があったんでしょう<br/>
-            
+            <p>なんかスカウト型の就活サイトらしいです。最近株価が伸びてるらしいのでなんかいい事があったんでしょう。</p>
+
           </li>
           <li>
             <h2>その３　キミスカ</h2>
