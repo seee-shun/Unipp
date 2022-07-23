@@ -44,9 +44,13 @@ export const PostCard: React.FC<Props> = (props) => {
                  #メインタグ
                  </Text>
               </Box>
-              <Text>
+              <Text textColor="lightgray">
               {props.createdAt}
+              </Text>
+              <Text textColor="gray" px={2} fontSize="20px">
               {props.userName}
+              </Text>
+              <Text textColor="darkgray">
               {props.userUnivName}
               </Text>
               </HStack>
