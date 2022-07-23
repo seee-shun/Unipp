@@ -87,7 +87,7 @@ export const CreatePostModal: React.FC<Props> = (props) => {
               >
               <ModalOverlay />
               <ModalContent p={8}>
-                <ModalHeader>New</ModalHeader>
+                <ModalHeader>新規投稿</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
                   <Textarea 
@@ -95,7 +95,7 @@ export const CreatePostModal: React.FC<Props> = (props) => {
                     size="lg" 
                     p={4}
                     mb={8}
-                    placeholder="投稿内容を入力" />
+                    placeholder="Enter Text" />
                     
                     <Divider />                            
                 </ModalBody>
@@ -105,7 +105,7 @@ export const CreatePostModal: React.FC<Props> = (props) => {
                     boxShadow="md"
                     borderRadius="full"
                     borderColor="blackAlpha.700"
-                    borderWidth="1px"
+                    borderWidth="0px"
                     px={8}
                     >#タグを選択
                   </Button>
@@ -115,7 +115,7 @@ export const CreatePostModal: React.FC<Props> = (props) => {
                     bgColor="blackAlpha.700" 
                     color="white" 
                     borderRadius="full" 
-                    px={8}  
+                    px={6}  
                     fontSize="lg">
                     投稿
                   </Button>
