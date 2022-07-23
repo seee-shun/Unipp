@@ -96,11 +96,13 @@ export const CreatePostModal: React.FC<Props> = (props) => {
                     p={4}
                     mb={8}
                     placeholder="投稿内容を入力" />
+                    
                     <Divider />                            
                 </ModalBody>
                 <ModalFooter justifyContent="space-between">
                   <Button
                     bgColor="white"
+                    boxShadow="md"
                     borderRadius="full"
                     borderColor="blackAlpha.700"
                     borderWidth="1px"
@@ -109,6 +111,7 @@ export const CreatePostModal: React.FC<Props> = (props) => {
                   </Button>
                   <Button 
                     onClick={onClose} 
+                    boxShadow="md"
                     bgColor="blackAlpha.700" 
                     color="white" 
                     borderRadius="full" 
